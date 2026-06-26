@@ -15,6 +15,7 @@ if (!reduceMotion && window.Lenis) {
     touchMultiplier: 1.4,
   });
 
+  window.lenis = lenis;
   function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf);
@@ -97,9 +98,8 @@ if (window.gsap && window.ScrollTrigger && !reduceMotion) {
     });
   });
 
-  /* Generic line reveals (intro + future sections) */
+  /* Generic line reveals (intro) */
   gsap.utils.toArray('.reveal-line').forEach((line) => {
-    const inner = line.firstChild;
     gsap.from(line, {
       yPercent: 100,
       opacity: 0,
@@ -108,7 +108,55 @@ if (window.gsap && window.ScrollTrigger && !reduceMotion) {
       scrollTrigger: { trigger: line, start: 'top 88%' },
     });
   });
+
+  /* Section fade/slide reveals — batched so grids stagger naturally */
+  ScrollTrigger.batch('.reveal-fade', {
+    start: 'top 86%',
+    onEnter: (els) => gsap.to(els, {
+      y: 0, opacity: 1, duration: 1.1, ease: 'expo.out', stagger: 0.09, overwrite: true,
+    }),
+  });
+  gsap.set('.reveal-fade', { y: 42, opacity: 0 });
+
+  /* Marquee — drifts left, nudged by scroll velocity */
+  const track = document.querySelector('.marquee__track');
+  if (track) {
+    const half = track.scrollWidth / 2;
+    let x = 0;
+    gsap.ticker.add(() => {
+      x -= 0.6 + Math.abs(lenis ? lenis.velocity : 0) * 0.25;
+      if (-x >= half) x = 0;
+      track.style.transform = `translate3d(${x}px,0,0)`;
+    });
+  }
+
+  /* Subtle parallax inside project/work media on scroll */
+  gsap.utils.toArray('[data-tilt] .media__img').forEach((img) => {
+    gsap.fromTo(img, { yPercent: -4 }, {
+      yPercent: 4, ease: 'none',
+      scrollTrigger: { trigger: img.closest('.media'), start: 'top bottom', end: 'bottom top', scrub: true },
+    });
+  });
+
+  /* Project tile hover — image scales (GSAP composes it with the scroll parallax) */
+  if (window.matchMedia('(hover: hover)').matches) {
+    gsap.utils.toArray('.tile').forEach((tile) => {
+      const img = tile.querySelector('.media__img');
+      if (!img) return;
+      tile.addEventListener('mouseenter', () => gsap.to(img, { scale: 1.06, duration: 0.9, ease: 'expo.out' }));
+      tile.addEventListener('mouseleave', () => gsap.to(img, { scale: 1, duration: 0.9, ease: 'expo.out' }));
+    });
+  }
+} else {
+  /* Reduced motion / no GSAP — ensure content is visible */
+  document.querySelectorAll('.reveal, .reveal-fade, .reveal-line').forEach((el) => {
+    el.style.opacity = 1; el.style.transform = 'none';
+  });
 }
+
+/* Footer year */
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* Fade in body once everything is wired (avoids FOUC flash) */
 requestAnimationFrame(() => document.body.classList.add('is-ready'));

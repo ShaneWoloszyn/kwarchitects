@@ -46,13 +46,13 @@
 
     <!-- ===================== 1. HERO ===================== -->
     <section class="hero" id="hero">
-      <div class="hero__media" data-parallax data-speed="0.18">
+      <div class="hero__media media media--hero" data-parallax data-speed="0.18">
         <img
-          class="hero__img swap"
-          src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=2400&q=80"
-          alt="A modern coastal home on the Maine shoreline at dusk"
+          class="media__img swap"
+          src="https://images.unsplash.com/photo-1502786129293-79981df4e689?auto=format&fit=crop&w=2400&q=80"
+          alt="Fog rolling over a rocky Maine shoreline at dawn"
           fetchpriority="high"
-          onerror="this.classList.add('img--fallback')"
+          onerror="this.style.opacity=0"
         />
         <div class="hero__scrim"></div>
       </div>
@@ -81,12 +81,269 @@
       </p>
     </section>
 
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Design<i>·</i>Build<i>·</i>Coastal<i>·</i>Maine<i>·</i>Design<i>·</i>Build<i>·</i>Coastal<i>·</i>Maine<i>·</i></span>
+        <span>Design<i>·</i>Build<i>·</i>Coastal<i>·</i>Maine<i>·</i>Design<i>·</i>Build<i>·</i>Coastal<i>·</i>Maine<i>·</i></span>
+      </div>
+    </div>
+
+    <!-- ===================== 3. WHAT WE DO ===================== -->
+    <section class="work" id="work">
+      <header class="section-head">
+        <span class="eyebrow reveal-fade">What We Do</span>
+        <h2 class="section-title reveal-fade">Two disciplines,<br>one shoreline sensibility.</h2>
+      </header>
+
+      <div class="work__grid">
+        <article class="work__card reveal-fade">
+          <div class="media media--tall" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
+              alt="Modern coastal residence with weathered cladding" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="work__meta">
+            <span class="work__index">01</span>
+            <h3 class="work__name">Residential</h3>
+            <p class="work__desc">Coastal homes and retreats shaped by light, weather and the long New England horizon.</p>
+          </div>
+        </article>
+
+        <article class="work__card reveal-fade">
+          <div class="media media--tall" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
+              alt="Contemporary commercial building exterior" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="work__meta">
+            <span class="work__index">02</span>
+            <h3 class="work__name">Commercial</h3>
+            <p class="work__desc">Civic, hospitality and workplace buildings rooted in their communities and built to endure.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 4. SELECTED PROJECTS ===================== -->
+    <section class="projects" id="projects">
+      <header class="section-head section-head--row">
+        <span class="eyebrow reveal-fade">Selected Projects</span>
+        <p class="section-note reveal-fade">A measured edit of recent residential and commercial work along the southern Maine coast.</p>
+      </header>
+
+      <div class="grid">
+        <!-- Featured -->
+        <a class="tile tile--wide reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=80"
+              alt="Port View residence overlooking the harbor" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Port View</h3>
+            <span class="tile__tag">Residential · Maine Home + Design</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"
+              alt="Biddeford Beach Retreat" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Biddeford Beach Retreat</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1400&q=80"
+              alt="Morning Walk Cottage" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Morning Walk Cottage</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile tile--tall reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=80"
+              alt="Walkers Point residence" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Walkers Point</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80"
+              alt="Cape Porpoise home" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Cape Porpoise</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80"
+              alt="Travis Mills Foundation Wellness Center" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Travis Mills Foundation Wellness Center</h3>
+            <span class="tile__tag">Commercial</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=80"
+              alt="Hancock Lumber, Saco" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Hancock Lumber, Saco</h3>
+            <span class="tile__tag">Commercial</span>
+          </div>
+        </a>
+
+        <a class="tile tile--wide reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?auto=format&fit=crop&w=2000&q=80"
+              alt="Old Vines Pavilion" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Old Vines Pavilion</h3>
+            <span class="tile__tag">Commercial</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== 5. PROCESS ===================== -->
+    <section class="process" id="process">
+      <header class="section-head">
+        <span class="eyebrow reveal-fade">Process</span>
+        <h2 class="section-title reveal-fade">A clear path,<br>start to shoreline.</h2>
+      </header>
+
+      <ol class="steps">
+        <li class="step reveal-fade">
+          <span class="step__num">01</span>
+          <h3 class="step__title">Scope &amp; Proposal</h3>
+          <p class="step__text">We listen, walk the site, and frame the project — scope, schedule and a clear proposal.</p>
+        </li>
+        <li class="step reveal-fade">
+          <span class="step__num">02</span>
+          <h3 class="step__title">Design, Review &amp; Refinement</h3>
+          <p class="step__text">Ideas take shape through drawings and conversation, refined until the fit is right.</p>
+        </li>
+        <li class="step reveal-fade">
+          <span class="step__num">03</span>
+          <h3 class="step__title">Finalization &amp; Permitting</h3>
+          <p class="step__text">Documents are completed and guided through local review and permitting.</p>
+        </li>
+        <li class="step reveal-fade">
+          <span class="step__num">04</span>
+          <h3 class="step__title">Construction Oversight</h3>
+          <p class="step__text">We stay through the build, protecting the design intent to the final detail.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== 6. VOICES ===================== -->
+    <section class="voices" id="voices">
+      <figure class="quote reveal-fade">
+        <blockquote class="quote__text">
+          “Kristi understood the light, the wind, the way we wanted to live by the water —
+          and gave us a home that feels like it was always here.”
+        </blockquote>
+        <figcaption class="quote__by">Homeowner · Cape Porpoise</figcaption>
+      </figure>
+
+      <figure class="quote quote--alt reveal-fade">
+        <blockquote class="quote__text">
+          “Thoughtful, calm and exact from first sketch to final walk-through.”
+        </blockquote>
+        <figcaption class="quote__by">Client · Commercial Project, Saco</figcaption>
+      </figure>
+    </section>
+
+    <!-- ===================== 7. CONTACT / FOOTER ===================== -->
+    <footer class="contact" id="contact">
+      <div class="contact__media media" data-parallax data-speed="0.12">
+        <img class="media__img swap"
+          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2400&q=80"
+          alt="Quiet Maine coastline at dusk" loading="lazy"
+          onerror="this.style.opacity=0" />
+        <div class="contact__scrim"></div>
+      </div>
+
+      <div class="contact__inner">
+        <p class="eyebrow reveal-fade">Get in touch</p>
+        <h2 class="contact__title reveal-fade">Let’s design something<br>for the coast.</h2>
+
+        <div class="contact__cols">
+          <div class="contact__col reveal-fade">
+            <span class="contact__label">Studio</span>
+            <p>P.O. Box 404<br>Wells, ME 04090</p>
+          </div>
+          <div class="contact__col reveal-fade">
+            <span class="contact__label">Contact</span>
+            <p>
+              <a href="mailto:kristi@maine-architects.com">kristi@maine-architects.com</a><br>
+              <a href="tel:+12073329199">207·332·9199</a>
+            </p>
+          </div>
+          <div class="contact__col reveal-fade">
+            <span class="contact__label">Follow</span>
+            <p><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></p>
+          </div>
+        </div>
+
+        <form class="contact__news reveal-fade" onsubmit="return false">
+          <label for="email" class="contact__label">Newsletter</label>
+          <div class="contact__field">
+            <input id="email" type="email" placeholder="Your email" autocomplete="email" />
+            <button type="submit" aria-label="Subscribe">→</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="contact__base">
+        <span class="contact__mark">KW ARCHITECTS PC</span>
+        <span>© <span id="year"></span> · Wells, Maine</span>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Smooth scroll + motion -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- Smooth scroll + motion (vendored locally — no CDN dependency) -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

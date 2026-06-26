@@ -10,11 +10,17 @@ driftwood, sea-glass green, deep slate. The photography does the talking.
 - [GSAP + ScrollTrigger](https://gsap.com/) — parallax & scroll-driven reveals
 - Fonts: **Fraunces** (display serif) + **Inter** (sans), via Google Fonts
 
+Motion libraries are **vendored** in `js/vendor/` (no CDN dependency), so the
+site runs fully offline. To refresh them: `npm install` then re-copy the
+`dist/*.min.js` files. `node_modules/` is gitignored.
+
 ## Run locally
 ```bash
 python3 -m http.server 8011
 # open http://localhost:8011
 ```
+Respects `prefers-reduced-motion` — all animation is disabled and content
+shown statically when the user prefers reduced motion.
 
 ## Swapping in real photography
 Placeholder images are Unsplash URLs marked with the `swap` class and carry an
@@ -23,10 +29,14 @@ replace the `src` with final assets (drop files in `assets/img/`). Recommended:
 full-bleed 2000px+ wide, warm/muted coastal grade.
 
 ## Sections
-1. Hero — wordmark + tagline (built)
-2. Intro line (built)
-3. What We Do — Commercial / Residential *(pending)*
-4. Selected Projects — asymmetric grid *(pending)*
-5. Process — four numbered steps *(pending)*
-6. Voices — testimonials *(pending)*
-7. Contact / footer *(pending)*
+1. Hero — wordmark + tagline, parallax media, scroll cue
+2. Intro line
+3. Marquee — Design · Build · Coastal · Maine (scroll-reactive)
+4. What We Do — Residential / Commercial, asymmetric pair
+5. Selected Projects — asymmetric grid, hover scale + scroll parallax
+6. Process — four numbered steps
+7. Voices — testimonial pull-quotes (placeholder copy)
+8. Contact / footer — studio address, email, phone, Facebook, newsletter
+
+> **Note:** Testimonial quotes in the Voices section are tasteful placeholders —
+> swap in real client quotes when available.
