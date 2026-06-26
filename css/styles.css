@@ -1,0 +1,277 @@
+/* =========================================================
+   KW ARCHITECTS — Coastal New England, quiet & image-forward
+   Design system + Hero
+   ========================================================= */
+
+:root {
+  /* Palette — muted, natural coastal */
+  --off-white:  #F4F0E8;   /* warm off-white  */
+  --sand:       #E4DACB;   /* soft sand       */
+  --fog:        #C9CDC9;   /* fog grey        */
+  --driftwood:  #A99F8F;   /* weathered driftwood */
+  --seaglass:   #93A99B;   /* sea-glass green */
+  --slate:      #2C3735;   /* deep slate      */
+  --slate-deep: #1E2725;   /* deeper slate    */
+  --ink:        #222826;
+
+  /* Type */
+  --display: "Fraunces", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  /* Rhythm */
+  --pad-x: clamp(1.25rem, 5vw, 5rem);
+  --maxw: 1680px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+body {
+  font-family: var(--sans);
+  background: var(--off-white);
+  color: var(--slate);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* Image fallback (if a placeholder URL ever fails) */
+.img--fallback { background: linear-gradient(140deg, var(--seaglass), var(--driftwood) 50%, var(--slate)); }
+.img--fallback::after { content: ""; }
+
+/* Shared label style */
+.eyebrow, .hero__eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1.1rem, 2.4vw, 1.9rem) var(--pad-x);
+  mix-blend-mode: difference;       /* legible over any imagery */
+  color: #fff;
+}
+.nav__logo { display: flex; align-items: baseline; gap: 0.55rem; }
+.nav__logo-mark {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.nav__logo-word {
+  font-size: 0.66rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 400;
+  opacity: 0.85;
+}
+.nav__toggle { display: flex; align-items: center; gap: 0.85rem; }
+.nav__toggle-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+.nav__toggle-bars { position: relative; width: 26px; height: 8px; }
+.nav__toggle-bars i {
+  position: absolute; left: 0; width: 100%; height: 1px;
+  background: currentColor;
+  transition: transform 0.5s var(--ease), opacity 0.3s;
+}
+.nav__toggle-bars i:nth-child(1) { top: 0; }
+.nav__toggle-bars i:nth-child(2) { top: 7px; }
+body.menu-open .nav__toggle-bars i:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+body.menu-open .nav__toggle-bars i:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
+
+/* =========================================================
+   OVERLAY MENU
+   ========================================================= */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: var(--slate-deep);
+  color: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--pad-x);
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+  transition: clip-path 0.9s var(--ease);
+}
+body.menu-open .menu { clip-path: inset(0 0 0% 0); pointer-events: auto; }
+.menu__list { list-style: none; }
+.menu__item { overflow: hidden; }
+.menu__item a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 8vw, 6rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  transform: translateY(110%);
+  transition: transform 0.8s var(--ease), color 0.4s;
+  color: var(--off-white);
+}
+body.menu-open .menu__item a { transform: translateY(0); }
+.menu__item:nth-child(1) a { transition-delay: 0.10s; }
+.menu__item:nth-child(2) a { transition-delay: 0.16s; }
+.menu__item:nth-child(3) a { transition-delay: 0.22s; }
+.menu__item:nth-child(4) a { transition-delay: 0.28s; }
+.menu__item:nth-child(5) a { transition-delay: 0.34s; }
+.menu__item a::before {
+  content: attr(data-num);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  font-weight: 400;
+  color: var(--seaglass);
+  transform: translateY(-0.6em);
+}
+.menu__item a:hover { color: var(--seaglass); }
+.menu__foot {
+  position: absolute;
+  bottom: clamp(1.6rem, 4vw, 3rem);
+  left: var(--pad-x); right: var(--pad-x);
+  display: flex; justify-content: space-between;
+  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--driftwood);
+  opacity: 0; transition: opacity 0.6s 0.5s;
+}
+body.menu-open .menu__foot { opacity: 1; }
+
+/* =========================================================
+   1. HERO
+   ========================================================= */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.hero__media {
+  position: absolute;
+  top: -8%; left: 0; right: 0;
+  height: 116%;                      /* extra for parallax travel */
+  will-change: transform;
+}
+.hero__img { transform: scale(1.04); }
+.hero__scrim {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(20,26,25,0.62) 0%, rgba(20,26,25,0.12) 38%, rgba(20,26,25,0.20) 100%);
+}
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x) clamp(4.5rem, 10vh, 8rem);
+  color: var(--off-white);
+}
+.hero__eyebrow { display: block; margin-bottom: 1.6rem; opacity: 0.9; }
+.hero__wordmark {
+  font-family: var(--display);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  font-size: clamp(3.4rem, 14vw, 13rem);
+}
+.hero__wordmark span { display: block; overflow: hidden; }
+.hero__tagline {
+  margin-top: 1.8rem;
+  font-size: clamp(1rem, 1.7vw, 1.45rem);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  color: rgba(244,240,232,0.92);
+}
+
+/* Scroll cue */
+.hero__cue {
+  position: absolute;
+  z-index: 3;
+  bottom: clamp(1.6rem, 4vh, 2.6rem);
+  right: var(--pad-x);
+  display: flex; flex-direction: column; align-items: center; gap: 0.9rem;
+  color: var(--off-white);
+}
+.hero__cue-line {
+  width: 1px; height: 56px;
+  background: linear-gradient(to bottom, rgba(244,240,232,0.8), rgba(244,240,232,0));
+  transform-origin: top;
+  animation: cue 2.4s var(--ease) infinite;
+}
+@keyframes cue {
+  0%   { transform: scaleY(0); opacity: 0; }
+  35%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1) translateY(20px); opacity: 0; }
+}
+.hero__cue-text {
+  font-size: 0.62rem; letter-spacing: 0.34em; text-transform: uppercase;
+  writing-mode: vertical-rl;
+  opacity: 0.8;
+}
+
+/* =========================================================
+   2. INTRO LINE
+   ========================================================= */
+.intro {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(7rem, 20vh, 16rem) var(--pad-x);
+}
+.intro__line {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(1.6rem, 4.6vw, 4rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+  color: var(--slate);
+}
+.reveal-line { display: block; overflow: hidden; }
+
+/* =========================================================
+   REVEAL ANIMATION HOOKS (driven by GSAP)
+   ========================================================= */
+.reveal { will-change: transform, opacity; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__cue-line { animation: none; }
+  * { scroll-behavior: auto !important; }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 640px) {
+  .nav__logo-word { display: none; }
+  .hero__cue-text { display: none; }
+  .menu__foot { flex-direction: column; gap: 0.4rem; }
+}
