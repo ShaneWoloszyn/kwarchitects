@@ -1,0 +1,20 @@
+{
+  "name": "kwarchitects",
+  "version": "1.0.0",
+  "description": "A quiet, image-forward single-page site for KW Architects PC, an award-winning architecture firm in Wells, Maine. Coastal New England mood: soft sand, fog grey, driftwood, sea-glass green, deep slate. The photography does the talking.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:41729/git/ShaneWoloszyn/kwarchitects"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "gsap": "^3.12.5"
+  }
+}

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KW Architects PC — Coastal inspiration + local expertise</title>
+  <meta name="description" content="KW Architects PC — an award-winning architecture firm on the southern Maine coast. Since 2003, designing commercial buildings and coastal homes. Certified Passive House design." />
+
+  <!-- Fonts: Archivo (clean modern display) + Inter (sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="images/logo.jpg" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="KW Architects PC home">
+      <span class="nav__logo-mark">KW</span>
+      <span class="nav__logo-word">ARCHITECTS PC</span>
+    </a>
+    <button class="nav__toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span class="nav__toggle-label">Menu</span>
+      <span class="nav__toggle-bars" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </header>
+
+  <!-- ===================== OVERLAY MENU ===================== -->
+  <nav class="menu" id="menu" aria-hidden="true">
+    <ul class="menu__list">
+      <li class="menu__item"><a href="#work" data-num="01">What We Do</a></li>
+      <li class="menu__item"><a href="#projects" data-num="02">Selected Projects</a></li>
+      <li class="menu__item"><a href="#process" data-num="03">Process</a></li>
+      <li class="menu__item"><a href="#about" data-num="04">About</a></li>
+      <li class="menu__item"><a href="#start" data-num="05">Get Started</a></li>
+      <li class="menu__item"><a href="#contact" data-num="06">Contact</a></li>
+    </ul>
+    <div class="menu__foot">
+      <span>Kennebunk, Maine</span>
+      <span>207·332·9199</span>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ===================== 1. HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero__media media media--hero" data-parallax data-speed="0.18">
+        <img
+          class="media__img swap"
+          src="https://images.unsplash.com/photo-1502786129293-79981df4e689?auto=format&fit=crop&w=2400&q=80"
+          alt="Fog rolling over a rocky Maine shoreline at dawn"
+          fetchpriority="high"
+          onerror="this.style.opacity=0"
+        />
+        <div class="hero__scrim"></div>
+      </div>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow reveal">Kennebunkport, Kennebunk + Wells</p>
+        <h1 class="hero__wordmark">
+          <span class="reveal" data-d="1">KW</span>
+          <span class="reveal" data-d="2">ARCHITECTS</span>
+        </h1>
+        <p class="hero__tagline reveal" data-d="3">Coastal inspiration + local expertise.</p>
+      </div>
+
+      <a href="#intro" class="hero__cue" aria-label="Scroll down">
+        <span class="hero__cue-line"></span>
+        <span class="hero__cue-text">Scroll</span>
+      </a>
+    </section>
+
+    <!-- ===================== 2. INTRO LINE ===================== -->
+    <section class="intro" id="intro">
+      <p class="intro__line">
+        <span class="reveal-line">Since 2003, KW Architects PC has designed</span>
+        <span class="reveal-line">spaces that balance craft and livability—from</span>
+        <span class="reveal-line">distinctive commercial buildings to coastal and</span>
+        <span class="reveal-line">waterfront homes shaped by their surroundings.</span>
+      </p>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i></span>
+        <span>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i></span>
+      </div>
+    </div>
+
+    <!-- ===================== 3. WHAT WE DO ===================== -->
+    <section class="work" id="work">
+      <header class="section-head">
+        <span class="eyebrow reveal-fade">What We Do</span>
+        <h2 class="section-title reveal-fade">Two disciplines,<br>one shoreline sensibility.</h2>
+      </header>
+
+      <div class="work__grid">
+        <article class="work__card reveal-fade">
+          <div class="media media--tall" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
+              alt="Modern coastal residence with weathered cladding" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="work__meta">
+            <span class="work__index">01</span>
+            <h3 class="work__name">Residential</h3>
+            <p class="work__desc">Comfortable waterfront homes and retreats made for everyday living.</p>
+          </div>
+        </article>
+
+        <article class="work__card reveal-fade">
+          <div class="media media--tall" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
+              alt="Contemporary commercial building exterior" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="work__meta">
+            <span class="work__index">02</span>
+            <h3 class="work__name">Commercial</h3>
+            <p class="work__desc">Workplaces and commercial buildings rooted in their communities and built to endure.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== 4. SELECTED PROJECTS ===================== -->
+    <section class="projects" id="projects">
+      <header class="section-head section-head--row">
+        <span class="eyebrow reveal-fade">Selected Projects</span>
+        <p class="section-note reveal-fade">A measured edit of recent residential and commercial work along the southern Maine coast.</p>
+      </header>
+
+      <div class="grid">
+        <!-- Featured -->
+        <a class="tile tile--wide reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=80"
+              alt="Port View residence overlooking the harbor" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Port View</h3>
+            <span class="tile__tag">Residential · Maine Home + Design</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"
+              alt="Biddeford Beach Retreat" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Biddeford Beach Retreat</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1400&q=80"
+              alt="Morning Walk Cottage" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Morning Walk Cottage</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile tile--tall reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=80"
+              alt="Walkers Point residence" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Walkers Point</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80"
+              alt="Cape Porpoise home" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Cape Porpoise</h3>
+            <span class="tile__tag">Residential</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80"
+              alt="Travis Mills Foundation Wellness Center" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Travis Mills Foundation Wellness Center</h3>
+            <span class="tile__tag">Commercial</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=80"
+              alt="Hancock Lumber, Saco" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Hancock Lumber, Saco</h3>
+            <span class="tile__tag">Commercial</span>
+          </div>
+        </a>
+
+        <a class="tile tile--wide reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img swap"
+              src="https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?auto=format&fit=crop&w=2000&q=80"
+              alt="Old Vines Pavilion" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Old Vines Pavilion</h3>
+            <span class="tile__tag">Commercial</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== 5. PROCESS ===================== -->
+    <section class="process" id="process">
+      <header class="section-head">
+        <span class="eyebrow reveal-fade">Process</span>
+        <h2 class="section-title reveal-fade">We design with you, not just for you—<br>every step from vision to completion.</h2>
+      </header>
+
+      <ol class="steps">
+        <li class="step reveal-fade">
+          <span class="step__num">01</span>
+          <h3 class="step__title">Scope &amp; Proposal</h3>
+          <p class="step__text">We listen, walk the site, and frame the project — scope, schedule and a clear proposal.</p>
+        </li>
+        <li class="step reveal-fade">
+          <span class="step__num">02</span>
+          <h3 class="step__title">Design, Review &amp; Refinement</h3>
+          <p class="step__text">Ideas take shape through drawings and conversation, refined until the fit is right.</p>
+        </li>
+        <li class="step reveal-fade">
+          <span class="step__num">03</span>
+          <h3 class="step__title">Finalization &amp; Permitting</h3>
+          <p class="step__text">Documents are completed and guided through local review and permitting.</p>
+        </li>
+        <li class="step reveal-fade">
+          <span class="step__num">04</span>
+          <h3 class="step__title">Construction Oversight</h3>
+          <p class="step__text">We can also stay on through the build, fielding questions from your contractor, keeping the work true to the drawings, and helping navigate changes as they come up.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="about" id="about">
+      <div class="about__logo reveal-fade">
+        <img src="images/logo.jpg" alt="KW Architects PC logo" loading="lazy" onerror="this.style.opacity=0" />
+      </div>
+
+      <header class="section-head">
+        <span class="eyebrow reveal-fade">Who We Are</span>
+        <h2 class="section-title reveal-fade">About KW Architects PC</h2>
+      </header>
+
+      <div class="about__body">
+        <p class="reveal-fade">For more than 25 years, KW Architects PC has designed spaces that balance craft and livability—from distinctive commercial buildings to coastal homes shaped by their surroundings.</p>
+        <p class="reveal-fade">Based in the Kennebunk and Kennebunkport area, we work throughout southern Maine on residential renovations, new construction, and mixed-use projects. Whether it's a careful update to an oceanfront cottage or a ground-up commercial building, our approach is the same: listen first, design with intention, and pay attention to the details that make a place work day after day.</p>
+      </div>
+
+      <!-- Passive House — part of the About section -->
+      <div class="passive__inner reveal-fade">
+        <div class="passive__mark">
+          <img src="images/passivehouse.jpg"
+            alt="Phius Certified Passive House Consultant (CPHC®) mark" loading="lazy"
+            onerror="this.style.opacity=0" />
+        </div>
+        <div class="passive__body">
+          <span class="eyebrow">Passive House</span>
+          <p class="passive__text">KW Architects PC is a Certified Passive House practice. We design ultra–energy-efficient, comfortable, healthy buildings using high-performance insulation, airtight construction, and heat-recovery ventilation — homes and buildings that cost less to run and feel better to live in year-round.</p>
+        </div>
+      </div>
+
+      <!-- Team -->
+      <div class="about__team">
+        <article class="bio reveal-fade">
+          <h3 class="bio__name">Kristi Kenney</h3>
+          <span class="bio__cred">AIA · LEED NC BD+C</span>
+          <p>Kristi Kenney founded KW Architects in 2003. Kristi is a Maine Registered Architect, member of the National Council of Architecture Registration Board (NCARB) and a LEED Accredited Professional as well as a Passive House Certified Designer. Kristi has a Bachelor of Architecture from University of Miami, class of 1994. Kristi bounced all around the United States and Europe practicing in Southern Florida, Arizona and the southwest United States and even Stuttgart, Germany before settling in Maine. With over 20 years of experience, Kristi has learned that the best projects start with listening to the client's vision and providing the best customer service.</p>
+        </article>
+        <article class="bio reveal-fade">
+          <h3 class="bio__name">Anne Pelletier</h3>
+          <span class="bio__cred">Architect</span>
+          <p>Anne Pelletier has a Master of Architecture from the University of Oregon and a Bachelor of Arts with Honors from Vassar College. Anne is also a licensed Architect with experience originally from the Midwest, having worked in Eugene and Bend, Oregon before moving to Maine in 2005.</p>
+        </article>
+      </div>
+
+      <!-- Closing -->
+      <div class="about__lead">
+        <p class="reveal-fade">We're a small firm by choice. That means the architect you meet at the first conversation is the one guiding your project through design, permitting, and construction. It also means we know the local landscape—shoreland zoning, flood mapping, MUBEC code, and the realities of building on the Maine waterfront areas—so your project moves forward with fewer surprises.</p>
+        <p class="reveal-fade">Good architecture isn't just about how a space looks. It's about how it feels to live and work in, how it holds up to the seasons, and how it fits the place it belongs to. That's the work we care about, and it's why so much of our business comes from clients and builders we've worked with before.</p>
+        <p class="reveal-fade about__invite">We'd love to hear about your project.</p>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT / FOOTER + PROJECT INTAKE ===================== -->
+    <footer class="contact" id="contact">
+      <div class="contact__media media" data-parallax data-speed="0.12">
+        <img class="media__img swap"
+          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2400&q=80"
+          alt="Quiet Maine coastline at dusk" loading="lazy"
+          onerror="this.style.opacity=0" />
+        <div class="contact__scrim"></div>
+      </div>
+
+      <div class="contact__inner">
+        <div class="contact__grid">
+
+          <!-- Left — get in touch -->
+          <div class="contact__intro">
+            <p class="eyebrow reveal-fade">Get in touch</p>
+            <h2 class="contact__title reveal-fade">Let’s design something<br>for the coast.</h2>
+
+            <div class="contact__cols">
+              <div class="contact__col reveal-fade">
+                <span class="contact__label">Studio</span>
+                <p>12 Depot Street<br>Kennebunk, Maine</p>
+              </div>
+              <div class="contact__col reveal-fade">
+                <span class="contact__label">Mailing</span>
+                <p>P.O. Box 404<br>Wells, ME 04090</p>
+              </div>
+              <div class="contact__col reveal-fade">
+                <span class="contact__label">Contact</span>
+                <p>
+                  <a href="mailto:kristi@maine-architects.com">kristi@maine-architects.com</a><br>
+                  <a href="tel:+12073329199">207·332·9199</a>
+                </p>
+              </div>
+              <div class="contact__col reveal-fade">
+                <span class="contact__label">Follow</span>
+                <p>
+                  <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a><br>
+                  <a href="https://www.instagram.com/kw_architects_pc/?hl=en" target="_blank" rel="noopener">Instagram</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right — project intake form -->
+          <!-- Formspree: create a free form at https://formspree.io and replace
+               YOUR_FORM_ID in the action below. Until that's set, the form shows a
+               demo confirmation and does not actually send. -->
+          <form id="start" class="intake reveal-fade" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="intake__intro">
+              <h3 class="intake__heading">Let's work together</h3>
+              <p class="intake__subheading">Please tell us more about your project</p>
+            </div>
+
+            <!-- 1. Name -->
+            <div class="field">
+              <span class="field__label">Name <span class="req">*</span></span>
+              <div class="field__row">
+                <input type="text" name="first_name" placeholder="First" required aria-label="First name" autocomplete="given-name" />
+                <input type="text" name="last_name" placeholder="Last" required aria-label="Last name" autocomplete="family-name" />
+              </div>
+            </div>
+
+            <!-- 2. Mailing Address -->
+            <div class="field">
+              <span class="field__label">Mailing Address</span>
+              <input type="text" name="mail_addr1" placeholder="Address Line 1" aria-label="Address Line 1" autocomplete="address-line1" />
+              <input type="text" name="mail_addr2" placeholder="Address Line 2" aria-label="Address Line 2" autocomplete="address-line2" />
+              <div class="field__row">
+                <input type="text" name="mail_city" placeholder="City" aria-label="City" autocomplete="address-level2" />
+                <input type="text" name="mail_state" placeholder="State / Province" aria-label="State / Province" autocomplete="address-level1" />
+              </div>
+              <input type="text" name="mail_zip" placeholder="Zip / Postal Code" aria-label="Zip / Postal Code" autocomplete="postal-code" />
+            </div>
+
+            <!-- 3. Phone -->
+            <div class="field">
+              <span class="field__label">Phone <span class="req">*</span></span>
+              <div class="field__row field__row--phone">
+                <select name="phone_country" class="phone__cc" aria-label="Country code">
+                  <option value="+1" selected>US +1</option>
+                  <option value="+1-CA">CA +1</option>
+                  <option value="+44">UK +44</option>
+                  <option value="+61">AU +61</option>
+                </select>
+                <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone" autocomplete="tel" />
+              </div>
+            </div>
+
+            <!-- 4. Email -->
+            <div class="field">
+              <span class="field__label">Email address <span class="req">*</span></span>
+              <input type="email" name="email" placeholder="Please provide your email address." required aria-label="Email address" autocomplete="email" />
+            </div>
+
+            <!-- 5. Address of the project -->
+            <div class="field">
+              <span class="field__label">Address of the project</span>
+              <input type="text" name="proj_street" placeholder="Street Address" aria-label="Project street address" />
+              <div class="field__row">
+                <input type="text" name="proj_city" placeholder="City" aria-label="Project city" />
+                <input type="text" name="proj_region" placeholder="State / Region" aria-label="Project state / region" />
+              </div>
+              <input type="text" name="proj_zip" placeholder="Postal / Zip Code" aria-label="Project postal / zip code" />
+            </div>
+
+            <!-- 6. Project Category -->
+            <div class="field">
+              <span class="field__label">Project Category</span>
+              <div class="field__radios">
+                <label class="radio"><input type="radio" name="category" value="Commercial" /> Commercial</label>
+                <label class="radio"><input type="radio" name="category" value="Residential" /> Residential</label>
+              </div>
+            </div>
+
+            <!-- 7. Type of Project -->
+            <div class="field">
+              <span class="field__label">Type of Project</span>
+              <select name="project_type" aria-label="Type of project">
+                <option value="New Construction" selected>New Construction</option>
+                <option value="Renovation">Renovation</option>
+                <option value="Addition">Addition</option>
+                <option value="Remodel">Remodel</option>
+                <option value="Interior Design">Interior Design</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- 8. Budget -->
+            <div class="field">
+              <span class="field__label">Please indicate your budget:</span>
+              <select name="budget" aria-label="Budget">
+                <option value="Under $100,000">Under $100,000</option>
+                <option value="$100,000 - $250,000" selected>$100,000 - $250,000</option>
+                <option value="$250,000 - $500,000">$250,000 - $500,000</option>
+                <option value="$500,000 - $1,000,000">$500,000 - $1,000,000</option>
+                <option value="$1,000,000+">$1,000,000+</option>
+              </select>
+            </div>
+
+            <!-- 9. Describe -->
+            <div class="field">
+              <span class="field__label">Describe your project:</span>
+              <textarea name="description" rows="5" placeholder="Your Comments"></textarea>
+            </div>
+
+            <!-- 10. Start date -->
+            <div class="field">
+              <span class="field__label">What is your ideal start date for construction?</span>
+              <input type="date" name="start_date" aria-label="Ideal start date for construction" />
+            </div>
+
+            <!-- 11. Inspiration board -->
+            <div class="field">
+              <span class="field__label">Do you have an Inspiration board on Pinterest, Houzz or other site that you can share with us?</span>
+              <input type="url" name="inspiration" placeholder="Insert your link" aria-label="Inspiration board link" />
+            </div>
+
+            <button type="submit" class="intake__submit">Submit</button>
+
+            <p class="intake__done" role="status" hidden>Thank you — we've received your details and will be in touch shortly.</p>
+            <p class="intake__error" role="alert" hidden>Sorry — something went wrong sending your message. Please email us at <a href="mailto:kristi@maine-architects.com">kristi@maine-architects.com</a>.</p>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="contact__base">
+        <span class="contact__mark">KW ARCHITECTS PC</span>
+        <span>© <span id="year"></span> · Kennebunk, Maine</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Smooth scroll + motion (vendored locally — no CDN dependency) -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
