@@ -448,7 +448,7 @@ body.menu-open .menu__foot { opacity: 1; }
   gap: clamp(1.5rem, 4vw, 4rem);
 }
 .work__card:nth-child(2) { margin-top: clamp(2rem, 8vw, 7rem); }  /* asymmetry */
-.media--tall { aspect-ratio: 3 / 4; border-radius: 2px; }
+.media--tall { aspect-ratio: 1 / 1; border-radius: 2px; cursor: zoom-in; }  /* square photos */
 .work__meta {
   display: flex; flex-direction: column; gap: 0.5rem;
   padding-top: 1.4rem;
@@ -476,28 +476,27 @@ body.menu-open .menu__foot { opacity: 1; }
    4. SELECTED PROJECTS — indexed asymmetric grid
    ========================================================= */
 .projects { padding: clamp(4rem, 10vh, 9rem) 0; }
+/* Square photos → square cells: tight mosaic, zero cropping */
 .grid {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 var(--pad-x);
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: clamp(1.1rem, 2.4vw, 2.4rem);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.3rem, 0.8vw, 0.9rem);
   counter-reset: tile;
 }
 .tile {
-  grid-column: span 3;
   display: block;
   position: relative;
   counter-increment: tile;
+  cursor: zoom-in;
 }
-.tile--wide { grid-column: span 6; }
-.tile--tall { grid-column: span 3; }
-.tile .media { aspect-ratio: 4 / 3; border-radius: 2px; }
-.tile--wide .media { aspect-ratio: 21 / 9; }
-.tile--tall .media { aspect-ratio: 3 / 4; }
+.tile .media,
+.tile--wide .media,
+.tile--tall .media { aspect-ratio: 1 / 1; border-radius: 2px; }
 
-/* Hover: image scales (GSAP), tint + "View" chip */
+/* Hover: tint + "View" chip (top right) */
 .tile .media::after {
   content: ""; position: absolute; inset: 0;
   background: rgba(20,29,26,0);
@@ -505,42 +504,51 @@ body.menu-open .menu__foot { opacity: 1; }
 }
 .tile .media::before {
   content: "View →";
-  position: absolute; z-index: 2;
-  right: 14px; bottom: 14px;
+  position: absolute; z-index: 3;
+  right: 12px; top: 12px;
   padding: 0.55em 1em 0.5em;
   background: var(--off-white);
   color: var(--ink);
   font-size: 0.6rem; font-weight: 500;
   letter-spacing: 0.24em; text-transform: uppercase;
-  opacity: 0; transform: translateY(8px);
+  opacity: 0; transform: translateY(-8px);
   transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
 }
+
+/* Caption overlaid on the photo — no vertical gaps between rows */
 .tile__bar {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1rem;
-  padding-top: 1rem;
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem;
+  padding: 2.6rem 0.95rem 0.85rem;
+  background: linear-gradient(to top, rgba(15,21,19,0.78), rgba(15,21,19,0));
+  border-radius: 0 0 2px 2px;
+  pointer-events: none;
 }
 .tile__bar::before {
   content: counter(tile, decimal-leading-zero);
   font-family: var(--display);
-  font-size: 0.68rem; font-weight: 500;
+  font-size: 0.62rem; font-weight: 500;
   letter-spacing: 0.2em;
-  color: var(--cedar);
+  color: var(--sand);
 }
 .tile__name {
   font-family: var(--display); font-weight: 400;
-  font-size: clamp(1.15rem, 1.8vw, 1.7rem); color: var(--slate);
-  letter-spacing: -0.015em;
+  font-size: clamp(0.95rem, 1.15vw, 1.2rem); color: var(--off-white);
+  letter-spacing: -0.01em;
   transition: color 0.4s var(--ease);
 }
 .tile__tag {
   margin-left: auto;
-  font-size: 0.64rem; letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--slate); opacity: 0.5;
+  font-size: 0.56rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: rgba(241,240,234,0.65);
 }
 @media (hover: hover) {
-  .tile:hover .media::after { background: rgba(20,29,26,0.18); }
+  .tile .tile__bar { opacity: 0; transform: translateY(6px); transition: opacity 0.45s var(--ease), transform 0.45s var(--ease); }
+  .tile:hover .tile__bar { opacity: 1; transform: translateY(0); }
+  .tile:hover .media::after { background: rgba(20,29,26,0.16); }
   .tile:hover .media::before { opacity: 1; transform: translateY(0); }
-  .tile:hover .tile__name { color: var(--seaglass); }
 }
 
 /* =========================================================
@@ -837,6 +845,49 @@ body.menu-open .menu__foot { opacity: 1; }
 .intake__error a { color: var(--seaglass); text-decoration: underline; }
 
 /* =========================================================
+   LIGHTBOX — click a project photo → centered fullscreen view
+   ========================================================= */
+.lightbox {
+  position: fixed; inset: 0; z-index: 120;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: rgba(13,19,17,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.4s var(--ease), visibility 0.4s;
+}
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox__fig { max-width: min(1240px, 100%); text-align: center; }
+.lightbox__img {
+  position: static;
+  width: auto; height: auto;
+  max-width: 100%; max-height: 82vh;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.55);
+  transform: scale(0.96);
+  transition: transform 0.4s var(--ease);
+}
+.lightbox.open .lightbox__img { transform: scale(1); }
+.lightbox__cap {
+  margin-top: 1.1rem;
+  color: var(--off-white);
+  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
+}
+.lightbox__close {
+  position: absolute;
+  top: clamp(0.8rem, 3vw, 2rem); right: clamp(0.8rem, 3vw, 2rem);
+  color: var(--off-white);
+  font-size: 2.2rem; line-height: 1;
+  padding: 0.3rem 0.6rem;
+  transition: color 0.3s, transform 0.3s var(--ease);
+}
+.lightbox__close:hover { color: var(--seaglass); transform: rotate(90deg); }
+body.lightbox-open { overflow: hidden; }
+
+/* =========================================================
    REVEAL ANIMATION HOOKS (driven by GSAP)
    ========================================================= */
 .reveal { will-change: transform, opacity; }
@@ -862,9 +913,7 @@ body.menu-open .menu__foot { opacity: 1; }
   .nav__cta { display: none; }
   .work__grid { grid-template-columns: 1fr; gap: 3rem; }
   .work__card:nth-child(2) { margin-top: 0; }
-  .grid { grid-template-columns: 1fr; }
-  .tile, .tile--wide, .tile--tall { grid-column: 1 / -1; }
-  .tile .media, .tile--wide .media, .tile--tall .media { aspect-ratio: 4 / 3; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
   .about__body { grid-template-columns: 1fr; gap: 1.6rem; }
   .about__team { grid-template-columns: 1fr; gap: 2.4rem; }
   .about__lead { grid-template-columns: 1fr; gap: 1.4rem; }

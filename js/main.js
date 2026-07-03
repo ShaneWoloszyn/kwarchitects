@@ -57,8 +57,8 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && body.classList.contains('menu-open')) setMenu(false);
 });
 
-/* In-page anchor links (e.g. scroll cue) via Lenis */
-document.querySelectorAll('a[href^="#"]:not(.menu__item a)').forEach((a) => {
+/* In-page anchor links (e.g. scroll cue) via Lenis — tiles open the lightbox instead */
+document.querySelectorAll('a[href^="#"]:not(.menu__item a):not(.tile)').forEach((a) => {
   a.addEventListener('click', (e) => {
     const id = a.getAttribute('href');
     if (id === '#' || id === '#top') return;
@@ -185,6 +185,61 @@ if (intake) {
       submit.textContent = label;
       if (fail) fail.hidden = false;
     }
+  });
+}
+
+/* ---------- Lightbox: click a project photo → centered fullscreen ---------- */
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const lbImg = lightbox.querySelector('.lightbox__img');
+  const lbCap = lightbox.querySelector('.lightbox__cap');
+  const lbClose = lightbox.querySelector('.lightbox__close');
+
+  const openLightbox = (src, alt, caption) => {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lbCap.textContent = caption || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    if (lenis) lenis.stop();
+    lbClose.focus();
+  };
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    if (lenis && !document.body.classList.contains('menu-open')) lenis.start();
+  };
+
+  /* Project tiles (anchors — suppress navigation) */
+  document.querySelectorAll('.tile').forEach((tile) => {
+    tile.addEventListener('click', (e) => {
+      e.preventDefault();
+      const img = tile.querySelector('.media__img');
+      if (!img) return;
+      const name = tile.querySelector('.tile__name');
+      const tag = tile.querySelector('.tile__tag');
+      const caption = [name && name.textContent.trim(), tag && tag.textContent.trim()].filter(Boolean).join(' — ');
+      openLightbox(img.currentSrc || img.src, img.alt, caption);
+    });
+  });
+
+  /* What-We-Do card photos */
+  document.querySelectorAll('.work__card .media').forEach((media) => {
+    media.addEventListener('click', () => {
+      const img = media.querySelector('.media__img');
+      if (!img) return;
+      const card = media.closest('.work__card');
+      const cap = card && card.querySelector('.work__caption');
+      openLightbox(img.currentSrc || img.src, img.alt, cap ? cap.textContent.trim() : '');
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
   });
 }
 
