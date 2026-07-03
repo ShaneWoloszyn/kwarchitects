@@ -1,8 +1,10 @@
 # KW Architects PC — marketing site
 
-A quiet, image-forward single-page site for KW Architects PC, an award-winning
-architecture firm in Wells, Maine. Coastal New England mood: soft sand, fog grey,
-driftwood, sea-glass green, deep slate. The photography does the talking.
+An editorial, image-forward single-page site for KW Architects PC, an
+award-winning architecture firm in Kennebunk, Maine. "Drafting sheet, coastal
+ink": numbered section headers with hairline rules, outlined display type, a
+fixed drafting frame around the viewport, and a scroll-progress hairline —
+over a muted coastal palette (chalk paper, sea-glass, weathered cedar, slate).
 
 ## Stack
 - Vanilla HTML / CSS / JS — no build step
@@ -46,5 +48,5 @@ off). **Before launch:** create a free form at https://formspree.io and replace
 `YOUR_FORM_ID` in the form's `action` in `index.html`. Until then it runs in demo
 mode (shows the thank-you message, logs a console warning, sends nothing).
 
-> **Note:** The Voices/testimonials section was removed; its CSS (`.voices`,
-> `.quote`) is left in place in case client quotes are added back later.
+> **Note:** The Voices/testimonials section (and its CSS) was removed —
+> rebuild it when Kristi sends real client reviews.

@@ -188,6 +188,18 @@ if (intake) {
   });
 }
 
+/* ---------- Scroll progress hairline (works with or without Lenis) ---------- */
+const progressEl = document.querySelector('.progress');
+if (progressEl) {
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progressEl.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress, { passive: true });
+  updateProgress();
+}
+
 /* Footer year */
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();

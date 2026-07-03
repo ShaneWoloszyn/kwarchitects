@@ -16,12 +16,17 @@
 </head>
 <body>
 
+  <!-- Drafting-sheet chrome: scroll progress hairline + viewport frame -->
+  <div class="progress" aria-hidden="true"></div>
+  <div class="frame" aria-hidden="true"></div>
+
   <!-- ===================== NAV ===================== -->
   <header class="nav" id="nav">
     <a href="#top" class="nav__logo" aria-label="KW Architects PC home">
       <span class="nav__logo-mark">KW</span>
       <span class="nav__logo-word">ARCHITECTS PC</span>
     </a>
+    <a href="#start" class="nav__cta">Start a Project</a>
     <button class="nav__toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
       <span class="nav__toggle-label">Menu</span>
       <span class="nav__toggle-bars" aria-hidden="true"><i></i><i></i></span>
@@ -63,9 +68,14 @@
         <p class="hero__eyebrow reveal">Kennebunkport, Kennebunk + Wells</p>
         <h1 class="hero__wordmark">
           <span class="reveal" data-d="1">KW</span>
-          <span class="reveal" data-d="2">ARCHITECTS</span>
+          <span class="reveal hero__wordmark-outline" data-d="2">ARCHITECTS</span>
         </h1>
         <p class="hero__tagline reveal" data-d="3">Coastal inspiration + local expertise.</p>
+        <div class="hero__meta reveal" data-d="4">
+          <span>Est. 2003</span>
+          <span>43.38° N · 70.54° W</span>
+          <span>CPHC® Certified</span>
+        </div>
       </div>
 
       <a href="#intro" class="hero__cue" aria-label="Scroll down">
@@ -84,47 +94,61 @@
       </p>
     </section>
 
+    <!-- ===================== FACTS STRIP ===================== -->
+    <ul class="facts" aria-label="Studio facts">
+      <li class="reveal-fade"><span class="facts__k">Established</span><span class="facts__v">2003</span></li>
+      <li class="reveal-fade"><span class="facts__k">Studio</span><span class="facts__v">Kennebunk, Maine</span></li>
+      <li class="reveal-fade"><span class="facts__k">Credential</span><span class="facts__v">CPHC® Passive House</span></li>
+      <li class="reveal-fade"><span class="facts__k">Work</span><span class="facts__v">Residential + Commercial</span></li>
+    </ul>
+
     <!-- ===================== MARQUEE ===================== -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i></span>
-        <span>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i>Design<i>·</i>Coastal<i>·</i>Maine<i>·</i>New Hampshire<i>·</i>Lake Front<i>·</i></span>
+        <span>Design<i>·</i><em>Coastal</em><i>·</i>Maine<i>·</i><em>New Hampshire</em><i>·</i>Lake Front<i>·</i><em>Design</em><i>·</i>Coastal<i>·</i><em>Maine</em><i>·</i>New Hampshire<i>·</i><em>Lake Front</em><i>·</i></span>
+        <span>Design<i>·</i><em>Coastal</em><i>·</i>Maine<i>·</i><em>New Hampshire</em><i>·</i>Lake Front<i>·</i><em>Design</em><i>·</i>Coastal<i>·</i><em>Maine</em><i>·</i>New Hampshire<i>·</i><em>Lake Front</em><i>·</i></span>
       </div>
     </div>
 
     <!-- ===================== 3. WHAT WE DO ===================== -->
     <section class="work" id="work">
       <header class="section-head">
-        <span class="eyebrow reveal-fade">What We Do</span>
+        <div class="section-head__row reveal-fade">
+          <span class="section-head__num">01</span>
+          <span class="eyebrow">What We Do</span>
+          <i class="section-head__rule" aria-hidden="true"></i>
+        </div>
         <h2 class="section-title reveal-fade">Two disciplines,<br>one shoreline sensibility.</h2>
       </header>
 
       <div class="work__grid">
         <article class="work__card reveal-fade">
           <div class="media media--tall" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
-              alt="Modern coastal residence with weathered cladding" loading="lazy"
+            <img class="media__img"
+              src="residential/campellis.png"
+              alt="Camp Ellis waterfront residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="work__meta">
             <span class="work__index">01</span>
             <h3 class="work__name">Residential</h3>
             <p class="work__desc">Comfortable waterfront homes and retreats made for everyday living.</p>
+            <span class="work__caption">Camp Ellis</span>
           </div>
         </article>
 
         <article class="work__card reveal-fade">
           <div class="media media--tall" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80"
-              alt="Contemporary commercial building exterior" loading="lazy"
+            <img class="media__img"
+              src="commercial/travismills.png"
+              alt="Travis Mills Fitness &amp; Wellness Center" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="work__meta">
             <span class="work__index">02</span>
             <h3 class="work__name">Commercial</h3>
             <p class="work__desc">Workplaces and commercial buildings rooted in their communities and built to endure.</p>
+            <span class="work__caption">Travis Mills Fitness &amp; Wellness Center</span>
           </div>
         </article>
       </div>
@@ -132,8 +156,12 @@
 
     <!-- ===================== 4. SELECTED PROJECTS ===================== -->
     <section class="projects" id="projects">
-      <header class="section-head section-head--row">
-        <span class="eyebrow reveal-fade">Selected Projects</span>
+      <header class="section-head">
+        <div class="section-head__row reveal-fade">
+          <span class="section-head__num">02</span>
+          <span class="eyebrow">Selected Projects</span>
+          <i class="section-head__rule" aria-hidden="true"></i>
+        </div>
         <p class="section-note reveal-fade">A measured edit of recent residential and commercial work along the southern Maine coast.</p>
       </header>
 
@@ -141,47 +169,34 @@
         <!-- Featured -->
         <a class="tile tile--wide reveal-fade" href="#contact">
           <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=80"
-              alt="Port View residence overlooking the harbor" loading="lazy"
+            <img class="media__img"
+              src="residential/doaneswharf.png"
+              alt="Doanes Wharf residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Port View</h3>
-            <span class="tile__tag">Residential · Maine Home + Design</span>
-          </div>
-        </a>
-
-        <a class="tile reveal-fade" href="#contact">
-          <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"
-              alt="Biddeford Beach Retreat" loading="lazy"
-              onerror="this.style.opacity=0" />
-          </div>
-          <div class="tile__bar">
-            <h3 class="tile__name">Biddeford Beach Retreat</h3>
+            <h3 class="tile__name">Doanes Wharf</h3>
             <span class="tile__tag">Residential</span>
           </div>
         </a>
 
         <a class="tile reveal-fade" href="#contact">
           <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1400&q=80"
-              alt="Morning Walk Cottage" loading="lazy"
+            <img class="media__img"
+              src="residential/blueberrylane.png"
+              alt="Blueberry Lane residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Morning Walk Cottage</h3>
+            <h3 class="tile__name">Blueberry Lane</h3>
             <span class="tile__tag">Residential</span>
           </div>
         </a>
 
-        <a class="tile tile--tall reveal-fade" href="#contact">
+        <a class="tile reveal-fade" href="#contact">
           <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1400&q=80"
+            <img class="media__img"
+              src="residential/walkerspoint.png"
               alt="Walkers Point residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
@@ -191,54 +206,67 @@
           </div>
         </a>
 
-        <a class="tile reveal-fade" href="#contact">
+        <a class="tile tile--tall reveal-fade" href="#contact">
           <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80"
-              alt="Cape Porpoise home" loading="lazy"
+            <img class="media__img"
+              src="residential/drakesisland.png"
+              alt="Drakes Island residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Cape Porpoise</h3>
+            <h3 class="tile__name">Drakes Island</h3>
             <span class="tile__tag">Residential</span>
           </div>
         </a>
 
         <a class="tile reveal-fade" href="#contact">
           <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80"
-              alt="Travis Mills Foundation Wellness Center" loading="lazy"
+            <img class="media__img"
+              src="commercial/hancocksaco.png"
+              alt="Hancock Lumber, Saco, Maine" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Travis Mills Foundation Wellness Center</h3>
+            <h3 class="tile__name">Hancock Lumber: Saco, ME</h3>
             <span class="tile__tag">Commercial</span>
           </div>
         </a>
 
         <a class="tile reveal-fade" href="#contact">
           <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=80"
-              alt="Hancock Lumber, Saco" loading="lazy"
+            <img class="media__img"
+              src="commercial/oldvines.png"
+              alt="Old Vines Pavillion, Kennebunk Lower Village" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Hancock Lumber, Saco</h3>
+            <h3 class="tile__name">Old Vines Pavillion: Kennebunk Lower Village</h3>
+            <span class="tile__tag">Commercial</span>
+          </div>
+        </a>
+
+        <a class="tile reveal-fade" href="#contact">
+          <div class="media" data-tilt>
+            <img class="media__img"
+              src="commercial/eventbarn.png"
+              alt="Event Barn, Acton, Maine" loading="lazy"
+              onerror="this.style.opacity=0" />
+          </div>
+          <div class="tile__bar">
+            <h3 class="tile__name">Event Barn: Acton, ME</h3>
             <span class="tile__tag">Commercial</span>
           </div>
         </a>
 
         <a class="tile tile--wide reveal-fade" href="#contact">
           <div class="media" data-tilt>
-            <img class="media__img swap"
-              src="https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?auto=format&fit=crop&w=2000&q=80"
-              alt="Old Vines Pavilion" loading="lazy"
+            <img class="media__img"
+              src="commercial/hancock.png"
+              alt="Hancock Lumber, Kennebunk, Maine" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Old Vines Pavilion</h3>
+            <h3 class="tile__name">Hancock Lumber, Kennebunk, ME</h3>
             <span class="tile__tag">Commercial</span>
           </div>
         </a>
@@ -248,7 +276,11 @@
     <!-- ===================== 5. PROCESS ===================== -->
     <section class="process" id="process">
       <header class="section-head">
-        <span class="eyebrow reveal-fade">Process</span>
+        <div class="section-head__row reveal-fade">
+          <span class="section-head__num">03</span>
+          <span class="eyebrow">Process</span>
+          <i class="section-head__rule" aria-hidden="true"></i>
+        </div>
         <h2 class="section-title reveal-fade">We design with you, not just for you—<br>every step from vision to completion.</h2>
       </header>
 
@@ -283,7 +315,11 @@
       </div>
 
       <header class="section-head">
-        <span class="eyebrow reveal-fade">Who We Are</span>
+        <div class="section-head__row reveal-fade">
+          <span class="section-head__num">04</span>
+          <span class="eyebrow">Who We Are</span>
+          <i class="section-head__rule" aria-hidden="true"></i>
+        </div>
         <h2 class="section-title reveal-fade">About KW Architects PC</h2>
       </header>
 
@@ -323,7 +359,7 @@
       <div class="about__lead">
         <p class="reveal-fade">We're a small firm by choice. That means the architect you meet at the first conversation is the one guiding your project through design, permitting, and construction. It also means we know the local landscape—shoreland zoning, flood mapping, MUBEC code, and the realities of building on the Maine waterfront areas—so your project moves forward with fewer surprises.</p>
         <p class="reveal-fade">Good architecture isn't just about how a space looks. It's about how it feels to live and work in, how it holds up to the seasons, and how it fits the place it belongs to. That's the work we care about, and it's why so much of our business comes from clients and builders we've worked with before.</p>
-        <p class="reveal-fade about__invite">We'd love to hear about your project.</p>
+        <a class="reveal-fade about__invite" href="#start">We'd love to hear about your project. <span class="about__invite-arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -342,8 +378,12 @@
 
           <!-- Left — get in touch -->
           <div class="contact__intro">
-            <p class="eyebrow reveal-fade">Get in touch</p>
-            <h2 class="contact__title reveal-fade">Let’s design something<br>for the coast.</h2>
+            <div class="section-head__row section-head__row--dark reveal-fade">
+              <span class="section-head__num">05</span>
+              <span class="eyebrow">Get in touch</span>
+              <i class="section-head__rule" aria-hidden="true"></i>
+            </div>
+            <h2 class="contact__title reveal-fade">Let’s design something<br><em>for the coast.</em></h2>
 
             <div class="contact__cols">
               <div class="contact__col reveal-fade">
@@ -497,6 +537,7 @@
       <div class="contact__base">
         <span class="contact__mark">KW ARCHITECTS PC</span>
         <span>© <span id="year"></span> · Kennebunk, Maine</span>
+        <a href="#top" class="back-top">Back to top ↑</a>
       </div>
     </footer>
 
