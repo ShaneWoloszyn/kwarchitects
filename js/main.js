@@ -193,12 +193,17 @@ const lightbox = document.getElementById('lightbox');
 if (lightbox) {
   const lbImg = lightbox.querySelector('.lightbox__img');
   const lbCap = lightbox.querySelector('.lightbox__cap');
+  const lbLink = lightbox.querySelector('.lightbox__link');
   const lbClose = lightbox.querySelector('.lightbox__close');
 
-  const openLightbox = (src, alt, caption) => {
+  const openLightbox = (src, alt, caption, article) => {
     lbImg.src = src;
     lbImg.alt = alt || '';
     lbCap.textContent = caption || '';
+    if (lbLink) {
+      lbLink.hidden = !article;
+      if (article) lbLink.href = article;
+    }
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.classList.add('lightbox-open');
@@ -221,7 +226,7 @@ if (lightbox) {
       const name = tile.querySelector('.tile__name');
       const tag = tile.querySelector('.tile__tag');
       const caption = [name && name.textContent.trim(), tag && tag.textContent.trim()].filter(Boolean).join(' — ');
-      openLightbox(img.currentSrc || img.src, img.alt, caption);
+      openLightbox(img.currentSrc || img.src, img.alt, caption, tile.dataset.article);
     });
   });
 

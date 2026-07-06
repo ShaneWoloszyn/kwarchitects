@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="icon" href="images/logo.jpg" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=20260703" />
 </head>
 <body>
 
@@ -40,8 +40,9 @@
       <li class="menu__item"><a href="#projects" data-num="02">Selected Projects</a></li>
       <li class="menu__item"><a href="#process" data-num="03">Process</a></li>
       <li class="menu__item"><a href="#about" data-num="04">About</a></li>
-      <li class="menu__item"><a href="#start" data-num="05">Get Started</a></li>
-      <li class="menu__item"><a href="#contact" data-num="06">Contact</a></li>
+      <li class="menu__item"><a href="#voices" data-num="05">Kind Words</a></li>
+      <li class="menu__item"><a href="#press" data-num="06">News &amp; Publications</a></li>
+      <li class="menu__item"><a href="#contact" data-num="07">Contact</a></li>
     </ul>
     <div class="menu__foot">
       <span>Kennebunk, Maine</span>
@@ -55,9 +56,9 @@
     <section class="hero" id="hero">
       <div class="hero__media media media--hero" data-parallax data-speed="0.18">
         <img
-          class="media__img swap"
-          src="https://images.unsplash.com/photo-1502786129293-79981df4e689?auto=format&fit=crop&w=2400&q=80"
-          alt="Fog rolling over a rocky Maine shoreline at dawn"
+          class="media__img"
+          src="images/coverphoto.jpeg"
+          alt="Coastal Maine home designed by KW Architects PC"
           fetchpriority="high"
           onerror="this.style.opacity=0"
         />
@@ -125,15 +126,15 @@
         <article class="work__card reveal-fade">
           <div class="media media--tall">
             <img class="media__img"
-              src="residential/campellis.png"
-              alt="Camp Ellis waterfront residence" loading="lazy"
+              src="residential/yorkretreat.jpeg"
+              alt="York Retreat waterfront residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="work__meta">
             <span class="work__index">01</span>
             <h3 class="work__name">Residential</h3>
             <p class="work__desc">Comfortable waterfront homes and retreats made for everyday living.</p>
-            <span class="work__caption">Camp Ellis</span>
+            <span class="work__caption">York Retreat</span>
           </div>
         </article>
 
@@ -167,10 +168,11 @@
 
       <div class="grid">
         <!-- Featured -->
-        <a class="tile tile--wide reveal-fade" href="#contact">
+        <a class="tile tile--wide reveal-fade" href="#contact"
+           data-article="https://mainehomedesign.com/inside-out/kristi-kenney-kw-architects-designing-challenging-spaces/">
           <div class="media">
             <img class="media__img"
-              src="residential/doaneswharf.png"
+              src="residential/doaneswharf.jpg"
               alt="Doanes Wharf residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
@@ -235,12 +237,12 @@
         <a class="tile reveal-fade" href="#contact">
           <div class="media">
             <img class="media__img"
-              src="commercial/oldvines.png"
-              alt="Old Vines Pavillion, Kennebunk Lower Village" loading="lazy"
+              src="commercial/hancocklumberoxford.jpeg"
+              alt="Hancock Lumber, Oxford, Maine" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Old Vines Pavillion: Kennebunk Lower Village</h3>
+            <h3 class="tile__name">Hancock Lumber: Oxford, ME</h3>
             <span class="tile__tag">Commercial</span>
           </div>
         </a>
@@ -363,6 +365,74 @@
       </div>
     </section>
 
+    <!-- ===================== VOICES ===================== -->
+    <section class="voices" id="voices">
+      <div class="voices__inner">
+        <div class="section-head__row section-head__row--dark reveal-fade">
+          <span class="section-head__num">05</span>
+          <span class="eyebrow">Kind Words</span>
+          <i class="section-head__rule" aria-hidden="true"></i>
+        </div>
+        <figure class="quote reveal-fade">
+          <blockquote class="quote__text">
+            “I loved working with Kristi — we are delighted with the beautiful house she designed.
+            She was always available, flexible, creative, and promptly responsive. She listened to us,
+            she listened to the contractor, she listened to the DEP, and she came up with solutions.
+            Her heart was wholly in this project from start to finish.”
+          </blockquote>
+          <figcaption class="quote__by">Terri Tsongalis · Homeowner, Ogunquit</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== NEWS & PUBLICATIONS ===================== -->
+    <section class="press" id="press">
+      <header class="section-head">
+        <div class="section-head__row reveal-fade">
+          <span class="section-head__num">06</span>
+          <span class="eyebrow">News &amp; Publications</span>
+          <i class="section-head__rule" aria-hidden="true"></i>
+        </div>
+      </header>
+      <ul class="press__list">
+        <li class="reveal-fade">
+          <a class="press__item" href="https://mainehomedesign.com/inside-out/kristi-kenney-kw-architects-designing-challenging-spaces/" target="_blank" rel="noopener">
+            <span class="press__source">Maine Home + Design</span>
+            <span class="press__title">Kristi Kenney, KW Architects: Designing Challenging Spaces</span>
+            <span class="press__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="reveal-fade">
+          <a class="press__item" href="https://mainehomedesign.com/features/2078-cottage-by-the-sea/" target="_blank" rel="noopener">
+            <span class="press__source">Maine Home + Design</span>
+            <span class="press__title">Cottage by the Sea</span>
+            <span class="press__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="reveal-fade">
+          <a class="press__item" href="https://mainehomedesign.com/features/business-in-the-front-party-on-the-deck-scott-raymond/" target="_blank" rel="noopener">
+            <span class="press__source">Maine Home + Design</span>
+            <span class="press__title">Business in the Front, Party on the Deck</span>
+            <span class="press__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="reveal-fade">
+          <a class="press__item" href="https://builtbyadams.com/recent-projects" target="_blank" rel="noopener">
+            <span class="press__source">Built by Adams</span>
+            <span class="press__title">Recent Projects</span>
+            <span class="press__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li class="reveal-fade">
+          <a class="press__item" href="https://www.instagram.com/p/DQ4lTJaEUi6/" target="_blank" rel="noopener">
+            <span class="press__source">Instagram</span>
+            <span class="press__title">Featured Project</span>
+            <span class="press__arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
     <!-- ===================== CONTACT / FOOTER + PROJECT INTAKE ===================== -->
     <footer class="contact" id="contact">
       <div class="contact__media media" data-parallax data-speed="0.12">
@@ -379,16 +449,16 @@
           <!-- Left — get in touch -->
           <div class="contact__intro">
             <div class="section-head__row section-head__row--dark reveal-fade">
-              <span class="section-head__num">05</span>
+              <span class="section-head__num">07</span>
               <span class="eyebrow">Get in touch</span>
               <i class="section-head__rule" aria-hidden="true"></i>
             </div>
-            <h2 class="contact__title reveal-fade">Let’s design something<br><em>for the coast.</em></h2>
+            <h2 class="contact__title reveal-fade">Let’s design something.</h2>
 
             <div class="contact__cols">
               <div class="contact__col reveal-fade">
                 <span class="contact__label">Studio</span>
-                <p>12 Depot Street<br>Kennebunk, Maine</p>
+                <p>12 Depot Street<br>Kennebunk, Maine<br><span class="contact__note">By appointment only</span></p>
               </div>
               <div class="contact__col reveal-fade">
                 <span class="contact__label">Mailing</span>
@@ -549,6 +619,7 @@
     <figure class="lightbox__fig">
       <img class="lightbox__img" src="" alt="" />
       <figcaption class="lightbox__cap"></figcaption>
+      <a class="lightbox__link" href="" target="_blank" rel="noopener" hidden>Read the feature <span aria-hidden="true">↗</span></a>
     </figure>
   </div>
 
@@ -556,6 +627,6 @@
   <script src="js/vendor/gsap.min.js"></script>
   <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/vendor/lenis.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20260703"></script>
 </body>
 </html>

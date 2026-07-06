@@ -195,6 +195,7 @@ body.menu-open .menu__item a { transform: translateY(0); }
 .menu__item:nth-child(4) a { transition-delay: 0.28s; }
 .menu__item:nth-child(5) a { transition-delay: 0.34s; }
 .menu__item:nth-child(6) a { transition-delay: 0.40s; }
+.menu__item:nth-child(7) a { transition-delay: 0.46s; }
 .menu__item a::before {
   content: attr(data-num);
   font-family: var(--sans);
@@ -447,7 +448,6 @@ body.menu-open .menu__foot { opacity: 1; }
   grid-template-columns: 1fr 1fr;
   gap: clamp(1.5rem, 4vw, 4rem);
 }
-.work__card:nth-child(2) { margin-top: clamp(2rem, 8vw, 7rem); }  /* asymmetry */
 .media--tall { aspect-ratio: 1 / 1; border-radius: 2px; cursor: zoom-in; }  /* square photos */
 .work__meta {
   display: flex; flex-direction: column; gap: 0.5rem;
@@ -708,6 +708,74 @@ body.menu-open .menu__foot { opacity: 1; }
 .about__invite:hover .about__invite-arrow { transform: translateX(0.35em); }
 
 /* =========================================================
+   NEWS & PUBLICATIONS — editorial press list
+   ========================================================= */
+.press { padding: clamp(4rem, 10vh, 9rem) 0; }
+.press__list {
+  list-style: none;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.press__item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem 2rem;
+  padding: clamp(1.1rem, 2.4vw, 1.7rem) 0;
+  border-top: 1px solid var(--line);
+  transition: padding-left 0.4s var(--ease);
+}
+.press__list li:last-child .press__item { border-bottom: 1px solid var(--line); }
+.press__source {
+  flex: 0 0 clamp(9rem, 16vw, 14rem);
+  font-size: 0.62rem; font-weight: 400;
+  letter-spacing: 0.26em; text-transform: uppercase;
+  color: var(--cedar);
+}
+.press__title {
+  flex: 1;
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.05rem, 1.8vw, 1.6rem);
+  letter-spacing: -0.01em;
+  color: var(--slate);
+  transition: color 0.35s var(--ease);
+}
+.press__arrow {
+  font-size: 1rem;
+  color: var(--driftwood);
+  transition: transform 0.35s var(--ease), color 0.35s;
+}
+@media (hover: hover) {
+  .press__item:hover { padding-left: 0.6rem; }
+  .press__item:hover .press__title { color: var(--seaglass); }
+  .press__item:hover .press__arrow { color: var(--seaglass); transform: translate(3px, -3px); }
+}
+
+/* =========================================================
+   VOICES — client testimonial
+   ========================================================= */
+.voices {
+  background: var(--slate-deep);
+  color: var(--off-white);
+  padding: clamp(5rem, 12vh, 10rem) var(--pad-x);
+}
+.voices__inner { max-width: var(--maxw); margin: 0 auto; }
+.quote { max-width: 1000px; margin-top: clamp(2rem, 5vw, 4rem); }
+.quote__text {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(1.45rem, 3.4vw, 2.9rem);
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: var(--off-white);
+}
+.quote__by {
+  margin-top: 1.8rem;
+  font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--seaglass);
+}
+
+/* =========================================================
    CONTACT / FOOTER + PROJECT INTAKE
    ========================================================= */
 .contact {
@@ -753,6 +821,10 @@ body.menu-open .menu__foot { opacity: 1; }
   color: var(--mist); margin-bottom: 0.9rem;
 }
 .contact__col p { font-size: 1rem; line-height: 1.7; color: var(--off-white); }
+.contact__note {
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--mist);
+}
 .contact__col a {
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 0% 1px;
@@ -876,6 +948,17 @@ body.menu-open .menu__foot { opacity: 1; }
   color: var(--off-white);
   font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
 }
+.lightbox__link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--seaglass);
+  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(127,160,149,0.5);
+  padding-bottom: 0.2em;
+  transition: color 0.3s, border-color 0.3s;
+}
+.lightbox__link:hover { color: var(--off-white); border-color: var(--off-white); }
+.lightbox__link[hidden] { display: none; }   /* [hidden] must beat display:inline-block */
 .lightbox__close {
   position: absolute;
   top: clamp(0.8rem, 3vw, 2rem); right: clamp(0.8rem, 3vw, 2rem);
@@ -912,7 +995,6 @@ body.lightbox-open { overflow: hidden; }
 @media (max-width: 760px) {
   .nav__cta { display: none; }
   .work__grid { grid-template-columns: 1fr; gap: 3rem; }
-  .work__card:nth-child(2) { margin-top: 0; }
   .grid { grid-template-columns: repeat(2, 1fr); }
   .about__body { grid-template-columns: 1fr; gap: 1.6rem; }
   .about__team { grid-template-columns: 1fr; gap: 2.4rem; }
@@ -922,6 +1004,8 @@ body.lightbox-open { overflow: hidden; }
 }
 @media (max-width: 640px) {
   .nav__logo-word { display: none; }
+  .press__item { flex-wrap: wrap; gap: 0.3rem 1rem; }
+  .press__source { flex-basis: 100%; }
   .hero__cue-text { display: none; }
   .hero__meta { justify-content: flex-start; }
   .menu__foot { flex-direction: column; gap: 0.4rem; }
