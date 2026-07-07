@@ -273,6 +273,8 @@ body.menu-open .menu__foot { opacity: 1; }
 .hero__meta {
   margin-top: clamp(1.6rem, 3.5vh, 2.4rem);
   padding-top: 1.1rem;
+  /* clear the vertical Scroll cue pinned at the right edge */
+  padding-right: clamp(3rem, 6vw, 5.5rem);
   border-top: 1px solid rgba(241,240,234,0.3);
   display: flex;
   flex-wrap: wrap;
@@ -289,7 +291,7 @@ body.menu-open .menu__foot { opacity: 1; }
   position: absolute;
   z-index: 3;
   bottom: clamp(1.6rem, 4vh, 2.6rem);
-  right: var(--pad-x);
+  right: clamp(1.2rem, 2.2vw, 2.2rem);   /* nearer the edge, clear of hero meta */
   display: flex; flex-direction: column; align-items: center; gap: 0.9rem;
   color: var(--off-white);
 }
@@ -357,6 +359,17 @@ body.menu-open .menu__foot { opacity: 1; }
   letter-spacing: -0.01em;
   color: var(--slate);
 }
+.facts__v--stack { font-size: clamp(0.92rem, 1.15vw, 1.15rem); line-height: 1.5; }
+.facts__v--stack a {
+  display: block;
+  width: max-content; max-width: 100%;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: color 0.3s, background-size 0.4s var(--ease);
+}
+.facts__v--stack a:hover { color: var(--seaglass); background-size: 100% 1px; }
 
 /* =========================================================
    SHARED SECTION FURNITURE — numbered sheet headers
@@ -449,6 +462,18 @@ body.menu-open .menu__foot { opacity: 1; }
   gap: clamp(1.5rem, 4vw, 4rem);
 }
 .media--tall { aspect-ratio: 1 / 1; border-radius: 2px; cursor: zoom-in; }  /* square photos */
+/* Photo-count badge — signals a gallery behind the image */
+.media__badge {
+  position: absolute; z-index: 2;
+  right: 12px; bottom: 12px;
+  padding: 0.55em 1em 0.5em;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  border-radius: 2px;
+  pointer-events: none;
+}
 .work__meta {
   display: flex; flex-direction: column; gap: 0.5rem;
   padding-top: 1.4rem;
@@ -502,6 +527,7 @@ body.menu-open .menu__foot { opacity: 1; }
   background: rgba(20,29,26,0);
   transition: background 0.5s var(--ease);
 }
+.tile .media[data-count]::before { content: attr(data-count) " →"; }
 .tile .media::before {
   content: "View →";
   position: absolute; z-index: 3;
@@ -958,7 +984,25 @@ body.menu-open .menu__foot { opacity: 1; }
   transition: color 0.3s, border-color 0.3s;
 }
 .lightbox__link:hover { color: var(--off-white); border-color: var(--off-white); }
-.lightbox__link[hidden] { display: none; }   /* [hidden] must beat display:inline-block */
+.lightbox__count {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--mist);
+  font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase;
+}
+.lightbox__nav {
+  position: absolute; z-index: 2;
+  top: 50%; transform: translateY(-50%);
+  color: var(--off-white);
+  font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1;
+  padding: 0.6rem 0.9rem;
+  transition: color 0.3s, transform 0.3s var(--ease);
+}
+.lightbox__nav--prev { left: clamp(0.4rem, 2vw, 1.6rem); }
+.lightbox__nav--next { right: clamp(0.4rem, 2vw, 1.6rem); }
+.lightbox__nav--prev:hover { color: var(--seaglass); transform: translateY(-50%) translateX(-4px); }
+.lightbox__nav--next:hover { color: var(--seaglass); transform: translateY(-50%) translateX(4px); }
+.lightbox [hidden] { display: none !important; }   /* [hidden] must beat any display rule */
 .lightbox__close {
   position: absolute;
   top: clamp(0.8rem, 3vw, 2rem); right: clamp(0.8rem, 3vw, 2rem);

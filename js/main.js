@@ -188,22 +188,55 @@ if (intake) {
   });
 }
 
-/* ---------- Lightbox: click a project photo → centered fullscreen ---------- */
+/* ---------- Lightbox: click a project photo → centered fullscreen ----------
+   Supports single images and multi-image galleries (data-gallery on the
+   card), plus an optional external link (data-article / data-link with a
+   custom label). Arrow keys / on-screen arrows navigate galleries. */
 const lightbox = document.getElementById('lightbox');
 if (lightbox) {
   const lbImg = lightbox.querySelector('.lightbox__img');
   const lbCap = lightbox.querySelector('.lightbox__cap');
+  const lbCount = lightbox.querySelector('.lightbox__count');
   const lbLink = lightbox.querySelector('.lightbox__link');
   const lbClose = lightbox.querySelector('.lightbox__close');
+  const lbPrev = lightbox.querySelector('.lightbox__nav--prev');
+  const lbNext = lightbox.querySelector('.lightbox__nav--next');
 
-  const openLightbox = (src, alt, caption, article) => {
-    lbImg.src = src;
-    lbImg.alt = alt || '';
+  let items = [];
+  let index = 0;
+
+  const render = () => {
+    const item = items[index];
+    lbImg.src = item.src;
+    lbImg.alt = item.alt || '';
+    const many = items.length > 1;
+    if (lbCount) {
+      lbCount.hidden = !many;
+      lbCount.textContent = (index + 1) + ' / ' + items.length;
+    }
+    if (lbPrev) lbPrev.hidden = !many;
+    if (lbNext) lbNext.hidden = !many;
+    /* Warm the next image so gallery paging feels instant */
+    if (many) { const pre = new Image(); pre.src = items[(index + 1) % items.length].src; }
+  };
+  const step = (dir) => {
+    if (items.length < 2) return;
+    index = (index + dir + items.length) % items.length;
+    render();
+  };
+
+  const openLightbox = (list, caption, link, linkLabel) => {
+    items = list;
+    index = 0;
     lbCap.textContent = caption || '';
     if (lbLink) {
-      lbLink.hidden = !article;
-      if (article) lbLink.href = article;
+      lbLink.hidden = !link;
+      if (link) {
+        lbLink.href = link;
+        lbLink.innerHTML = (linkLabel || 'Read the feature') + ' <span aria-hidden="true">↗</span>';
+      }
     }
+    render();
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.classList.add('lightbox-open');
@@ -226,25 +259,45 @@ if (lightbox) {
       const name = tile.querySelector('.tile__name');
       const tag = tile.querySelector('.tile__tag');
       const caption = [name && name.textContent.trim(), tag && tag.textContent.trim()].filter(Boolean).join(' — ');
-      openLightbox(img.currentSrc || img.src, img.alt, caption, tile.dataset.article);
+      let list = [{ src: img.currentSrc || img.src, alt: img.alt }];
+      if (tile.dataset.gallery) {
+        list = tile.dataset.gallery.split(',').map((s, i) => ({
+          src: s.trim(),
+          alt: (name ? name.textContent.trim() : img.alt) + ' — photo ' + (i + 1),
+        }));
+      }
+      openLightbox(list, caption, tile.dataset.article, tile.dataset.articleLabel);
     });
   });
 
-  /* What-We-Do card photos */
+  /* What-We-Do card photos — may carry a data-gallery list */
   document.querySelectorAll('.work__card .media').forEach((media) => {
     media.addEventListener('click', () => {
       const img = media.querySelector('.media__img');
       if (!img) return;
       const card = media.closest('.work__card');
       const cap = card && card.querySelector('.work__caption');
-      openLightbox(img.currentSrc || img.src, img.alt, cap ? cap.textContent.trim() : '');
+      const caption = cap ? cap.textContent.trim() : '';
+      let list = [{ src: img.currentSrc || img.src, alt: img.alt }];
+      if (card && card.dataset.gallery) {
+        list = card.dataset.gallery.split(',').map((s, i) => ({
+          src: s.trim(),
+          alt: (caption || img.alt) + ' — photo ' + (i + 1),
+        }));
+      }
+      openLightbox(list, caption, card && card.dataset.link, card && card.dataset.linkLabel);
     });
   });
 
   lbClose.addEventListener('click', closeLightbox);
+  if (lbPrev) lbPrev.addEventListener('click', () => step(-1));
+  if (lbNext) lbNext.addEventListener('click', () => step(1));
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
   });
 }
 

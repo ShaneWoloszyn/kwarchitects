@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="icon" href="images/logo.jpg" />
-  <link rel="stylesheet" href="css/styles.css?v=20260703" />
+  <link rel="stylesheet" href="css/styles.css?v=20260707c" />
 </head>
 <body>
 
@@ -75,7 +75,7 @@
         <div class="hero__meta reveal" data-d="4">
           <span>Est. 2003</span>
           <span>43.38° N · 70.54° W</span>
-          <span>CPHC® Certified</span>
+          <span>CPHB + CPHC Certified</span>
         </div>
       </div>
 
@@ -99,7 +99,10 @@
     <ul class="facts" aria-label="Studio facts">
       <li class="reveal-fade"><span class="facts__k">Established</span><span class="facts__v">2003</span></li>
       <li class="reveal-fade"><span class="facts__k">Studio</span><span class="facts__v">Kennebunk, Maine</span></li>
-      <li class="reveal-fade"><span class="facts__k">Credential</span><span class="facts__v">CPHC® Passive House</span></li>
+      <li class="reveal-fade"><span class="facts__k">Credential</span><span class="facts__v facts__v--stack">
+        <a href="https://www.phius.org/certifications/professionals/phius-certified-builder-cphb" target="_blank" rel="noopener">Phius Certified Builder (CPHB)</a>
+        <a href="https://www.phius.org/certifications/professionals/phius-certified-consultant-cphc" target="_blank" rel="noopener">Phius Certified Consultant (CPHC)</a>
+      </span></li>
       <li class="reveal-fade"><span class="facts__k">Work</span><span class="facts__v">Residential + Commercial</span></li>
     </ul>
 
@@ -119,7 +122,7 @@
           <span class="eyebrow">What We Do</span>
           <i class="section-head__rule" aria-hidden="true"></i>
         </div>
-        <h2 class="section-title reveal-fade">Two disciplines,<br>one shoreline sensibility.</h2>
+        <h2 class="section-title reveal-fade">From homes to headquarters —<br>architecture for how you live and work.</h2>
       </header>
 
       <div class="work__grid">
@@ -138,12 +141,16 @@
           </div>
         </article>
 
-        <article class="work__card reveal-fade">
+        <article class="work__card reveal-fade"
+          data-gallery="commercial/commercialmain.png,commercial/travismills/tm-01.jpg,commercial/travismills/tm-02.jpg,commercial/travismills/tm-03.jpg,commercial/travismills/tm-04.jpg,commercial/travismills/tm-05.jpg,commercial/travismills/tm-06.jpg,commercial/travismills/tm-07.jpg,commercial/travismills/tm-08.jpg"
+          data-link="https://www.travismillsfoundation.org/"
+          data-link-label="Visit the Travis Mills Foundation">
           <div class="media media--tall">
             <img class="media__img"
-              src="commercial/travismills.png"
+              src="commercial/commercialmain.png"
               alt="Travis Mills Fitness &amp; Wellness Center" loading="lazy"
               onerror="this.style.opacity=0" />
+            <span class="media__badge">9 Photos</span>
           </div>
           <div class="work__meta">
             <span class="work__index">02</span>
@@ -169,10 +176,11 @@
       <div class="grid">
         <!-- Featured -->
         <a class="tile tile--wide reveal-fade" href="#contact"
-           data-article="https://mainehomedesign.com/inside-out/kristi-kenney-kw-architects-designing-challenging-spaces/">
-          <div class="media">
+           data-article="https://mainehomedesign.com/inside-out/kristi-kenney-kw-architects-designing-challenging-spaces/"
+           data-gallery="residential/doaneswharf/doaneswharf.jpg,residential/doaneswharf/doanes-01.jpg,residential/doaneswharf/doanes-02.jpg,residential/doaneswharf/doanes-03.jpg,residential/doaneswharf/doanes-04.jpg,residential/doaneswharf/doanes-05.jpg,residential/doaneswharf/doanes-06.jpg,residential/doaneswharf/doanes-07.jpg,residential/doaneswharf/doanes-08.jpg,residential/doaneswharf/doanes-09.jpg">
+          <div class="media" data-count="10 Photos">
             <img class="media__img"
-              src="residential/doaneswharf.jpg"
+              src="residential/doaneswharf/doaneswharf.jpg"
               alt="Doanes Wharf residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
@@ -182,10 +190,11 @@
           </div>
         </a>
 
-        <a class="tile reveal-fade" href="#contact">
-          <div class="media">
+        <a class="tile reveal-fade" href="#contact"
+           data-gallery="residential/blueberrylane/blueberrylane.png,residential/blueberrylane/BlueberryLaneExteriorWeb-5.jpg,residential/blueberrylane/BlueberryLaneExteriorWeb-9.jpg,residential/blueberrylane/BlueberryLaneExteriorWeb-13.jpg,residential/blueberrylane/BlueberryLaneWeb-31.jpg,residential/blueberrylane/BlueberryLaneWeb-32.jpg,residential/blueberrylane/BlueberryLaneWeb-33.jpg,residential/blueberrylane/BlueberryLaneWeb-34.jpg">
+          <div class="media" data-count="8 Photos">
             <img class="media__img"
-              src="residential/blueberrylane.png"
+              src="residential/blueberrylane/blueberrylane.png"
               alt="Blueberry Lane residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
@@ -195,36 +204,41 @@
           </div>
         </a>
 
-        <a class="tile reveal-fade" href="#contact">
-          <div class="media">
+        <a class="tile reveal-fade" href="#contact"
+           data-gallery="residential/morningwalk/morningwalk.jpg,residential/morningwalk/morningwalk-01.jpg,residential/morningwalk/morningwalk-02.jpg,residential/morningwalk/morningwalk-03.jpg,residential/morningwalk/morningwalk-04.jpg,residential/morningwalk/morningwalk-05.jpg,residential/morningwalk/morningwalk-06.jpg,residential/morningwalk/morningwalk-07.jpg,residential/morningwalk/morningwalk-08.jpg">
+          <div class="media" data-count="9 Photos">
             <img class="media__img"
-              src="residential/walkerspoint.png"
-              alt="Walkers Point residence" loading="lazy"
+              src="residential/morningwalk/morningwalk.jpg"
+              alt="Morning Walk residence" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Walkers Point</h3>
+            <h3 class="tile__name">Morning Walk</h3>
             <span class="tile__tag">Residential</span>
           </div>
         </a>
 
-        <a class="tile tile--tall reveal-fade" href="#contact">
-          <div class="media">
+        <a class="tile tile--tall reveal-fade" href="#contact"
+           data-article="https://www.youtube.com/watch?v=HV26m8T3NbQ"
+           data-article-label="Watch the video"
+           data-gallery="residential/modernfarmhouse/modernfarmhouse.jpg,residential/modernfarmhouse/Octavia 26 - LLC S2.jpg,residential/modernfarmhouse/Octavia 26 - LLC S4.jpg,residential/modernfarmhouse/Octavia 26 - LLC S5.jpg,residential/modernfarmhouse/Octavia 26 - LLC S7.jpg,residential/modernfarmhouse/Octavia 26 - LLC S8.jpg">
+          <div class="media" data-count="6 Photos">
             <img class="media__img"
-              src="residential/drakesisland.png"
-              alt="Drakes Island residence" loading="lazy"
+              src="residential/modernfarmhouse/modernfarmhouse.jpg"
+              alt="Modern Farmhouse Retreat" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
           <div class="tile__bar">
-            <h3 class="tile__name">Drakes Island</h3>
+            <h3 class="tile__name">Modern Farmhouse Retreat</h3>
             <span class="tile__tag">Residential</span>
           </div>
         </a>
 
-        <a class="tile reveal-fade" href="#contact">
-          <div class="media">
+        <a class="tile reveal-fade" href="#contact"
+           data-gallery="commercial/hancocklumbersaco/hancocklumbersaco.jpg,commercial/hancocklumbersaco/saco-01.jpg,commercial/hancocklumbersaco/saco-02.jpg,commercial/hancocklumbersaco/saco-03.jpg,commercial/hancocklumbersaco/saco-04.jpg,commercial/hancocklumbersaco/saco-05.jpg,commercial/hancocklumbersaco/saco-06.jpg,commercial/hancocklumbersaco/saco-07.jpg,commercial/hancocklumbersaco/saco-08.jpg,commercial/hancocklumbersaco/saco-09.jpg,commercial/hancocklumbersaco/saco-10.jpg">
+          <div class="media" data-count="11 Photos">
             <img class="media__img"
-              src="commercial/hancocksaco.png"
+              src="commercial/hancocklumbersaco/hancocklumbersaco.jpg"
               alt="Hancock Lumber, Saco, Maine" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
@@ -247,10 +261,11 @@
           </div>
         </a>
 
-        <a class="tile reveal-fade" href="#contact">
-          <div class="media">
+        <a class="tile reveal-fade" href="#contact"
+           data-gallery="commercial/actoneventbarn/actoneventbarn.jpg,commercial/actoneventbarn/acton-01.jpg,commercial/actoneventbarn/acton-02.jpg,commercial/actoneventbarn/acton-03.jpg,commercial/actoneventbarn/acton-04.jpg,commercial/actoneventbarn/acton-05.jpg,commercial/actoneventbarn/acton-06.jpg,commercial/actoneventbarn/acton-07.jpg,commercial/actoneventbarn/acton-08.jpg,commercial/actoneventbarn/acton-09.jpg">
+          <div class="media" data-count="10 Photos">
             <img class="media__img"
-              src="commercial/eventbarn.png"
+              src="commercial/actoneventbarn/actoneventbarn.jpg"
               alt="Event Barn, Acton, Maine" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
@@ -260,10 +275,11 @@
           </div>
         </a>
 
-        <a class="tile tile--wide reveal-fade" href="#contact">
-          <div class="media">
+        <a class="tile tile--wide reveal-fade" href="#contact"
+           data-gallery="commercial/hancocklumberkennebunk/hancocklumberkennebunk.jpg,commercial/hancocklumberkennebunk/kennebunk-01.jpg,commercial/hancocklumberkennebunk/kennebunk-02.jpg,commercial/hancocklumberkennebunk/kennebunk-03.jpg,commercial/hancocklumberkennebunk/kennebunk-04.jpg,commercial/hancocklumberkennebunk/kennebunk-05.jpg">
+          <div class="media" data-count="6 Photos">
             <img class="media__img"
-              src="commercial/hancock.png"
+              src="commercial/hancocklumberkennebunk/hancocklumberkennebunk.jpg"
               alt="Hancock Lumber, Kennebunk, Maine" loading="lazy"
               onerror="this.style.opacity=0" />
           </div>
@@ -616,9 +632,12 @@
   <!-- ===================== LIGHTBOX ===================== -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
     <button class="lightbox__close" aria-label="Close image">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous image" hidden>←</button>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next image" hidden>→</button>
     <figure class="lightbox__fig">
       <img class="lightbox__img" src="" alt="" />
       <figcaption class="lightbox__cap"></figcaption>
+      <span class="lightbox__count" hidden></span>
       <a class="lightbox__link" href="" target="_blank" rel="noopener" hidden>Read the feature <span aria-hidden="true">↗</span></a>
     </figure>
   </div>
@@ -627,6 +646,6 @@
   <script src="js/vendor/gsap.min.js"></script>
   <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/vendor/lenis.min.js"></script>
-  <script src="js/main.js?v=20260703"></script>
+  <script src="js/main.js?v=20260707c"></script>
 </body>
 </html>

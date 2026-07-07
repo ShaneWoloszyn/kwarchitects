@@ -1,3 +1,15 @@
 node_modules/
 .DS_Store
 *.log
+
+# Photography source files — too large for the repo (up to 87MB each);
+# web-ready JPEGs are generated alongside them
+*.tif
+*.tiff
+*.psd
+commercial/hancocklumbersaco/hancocklumber???.jpg
+commercial/actoneventbarn/*IMG_*.jpg
+commercial/actoneventbarn/*IMG_*.JPG
+commercial/travismills/20221103_*.jpg
+commercial/hancocklumberkennebunk/ABOVE.jpg
+commercial/hancocklumberkennebunk/CLOSE UP BUILDING.jpg
