@@ -225,9 +225,9 @@ if (lightbox) {
     render();
   };
 
-  const openLightbox = (list, caption, link, linkLabel) => {
+  const openLightbox = (list, caption, link, linkLabel, start = 0) => {
     items = list;
-    index = 0;
+    index = start;
     lbCap.textContent = caption || '';
     if (lbLink) {
       lbLink.hidden = !link;
@@ -286,6 +286,22 @@ if (lightbox) {
         }));
       }
       openLightbox(list, caption, card && card.dataset.link, card && card.dataset.linkLabel);
+    });
+  });
+
+  /* Before + After pairs — click either state → both in the lightbox */
+  document.querySelectorAll('.ba-pair').forEach((pair) => {
+    const cells = [...pair.querySelectorAll('.ba-pair__cell')];
+    const name = pair.querySelector('.ba-pair__name');
+    cells.forEach((cell, i) => {
+      cell.addEventListener('click', () => {
+        const list = cells.map((c) => {
+          const img = c.querySelector('img');
+          return { src: img.currentSrc || img.src, alt: img.alt };
+        });
+        const caption = (name ? name.textContent.trim() : '') + ' — Before + After';
+        openLightbox(list, caption, null, null, i);
+      });
     });
   });
 

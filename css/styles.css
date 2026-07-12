@@ -196,6 +196,7 @@ body.menu-open .menu__item a { transform: translateY(0); }
 .menu__item:nth-child(5) a { transition-delay: 0.34s; }
 .menu__item:nth-child(6) a { transition-delay: 0.40s; }
 .menu__item:nth-child(7) a { transition-delay: 0.46s; }
+.menu__item:nth-child(8) a { transition-delay: 0.52s; }
 .menu__item a::before {
   content: attr(data-num);
   font-family: var(--sans);
@@ -319,6 +320,15 @@ body.menu-open .menu__foot { opacity: 1; }
   max-width: var(--maxw);
   margin: 0 auto;
   padding: clamp(6rem, 18vh, 14rem) var(--pad-x);
+}
+/* Firm logo — white-bg JPG; multiply drops the white box into the paper bg */
+.intro__logo { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.intro__logo img {
+  width: 180px;
+  max-width: 48%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
 }
 .intro__line {
   font-family: var(--display);
@@ -575,6 +585,64 @@ body.menu-open .menu__foot { opacity: 1; }
   .tile:hover .tile__bar { opacity: 1; transform: translateY(0); }
   .tile:hover .media::after { background: rgba(20,29,26,0.16); }
   .tile:hover .media::before { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   BEFORE + AFTER — renovation pairs
+   ========================================================= */
+.ba { padding: clamp(4rem, 10vh, 9rem) 0; }
+.ba__grid {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3.5vw, 3.5rem) clamp(1.1rem, 2.4vw, 2.4rem);
+}
+.ba-pair { margin: 0; }
+.ba-pair__imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;                       /* hairline seam between the two states */
+}
+.ba-pair__cell {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 2px;
+  background: linear-gradient(150deg, var(--fog) 0%, var(--driftwood) 60%, var(--slate) 100%);
+  cursor: zoom-in;
+}
+.ba-pair__cell img { transition: transform 0.9s var(--ease); }
+.ba-pair__cell::after {
+  content: attr(data-tag);
+  position: absolute;
+  top: 10px; left: 10px;
+  padding: 0.5em 0.9em 0.45em;
+  font-size: 0.56rem; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  border-radius: 2px;
+  background: var(--off-white); color: var(--ink);
+  pointer-events: none;
+}
+.ba-pair__cell[data-tag="After"]::after {
+  background: var(--seaglass); color: var(--slate-deep);
+}
+@media (hover: hover) {
+  .ba-pair__cell:hover img { transform: scale(1.05); }
+}
+.ba-pair__bar {
+  display: flex; align-items: baseline; gap: 1rem;
+  padding-top: 0.9rem;
+}
+.ba-pair__name {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.05rem, 1.5vw, 1.4rem); letter-spacing: -0.01em; color: var(--slate);
+}
+.ba-pair__tag {
+  margin-left: auto;
+  font-size: 0.6rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--slate); opacity: 0.5;
 }
 
 /* =========================================================
@@ -1040,6 +1108,7 @@ body.lightbox-open { overflow: hidden; }
   .nav__cta { display: none; }
   .work__grid { grid-template-columns: 1fr; gap: 3rem; }
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .ba__grid { grid-template-columns: 1fr; gap: 2.4rem; }
   .about__body { grid-template-columns: 1fr; gap: 1.6rem; }
   .about__team { grid-template-columns: 1fr; gap: 2.4rem; }
   .about__lead { grid-template-columns: 1fr; gap: 1.4rem; }
