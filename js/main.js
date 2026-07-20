@@ -57,8 +57,9 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && body.classList.contains('menu-open')) setMenu(false);
 });
 
-/* In-page anchor links (e.g. scroll cue) via Lenis — tiles open the lightbox instead */
-document.querySelectorAll('a[href^="#"]:not(.menu__item a):not(.tile)').forEach((a) => {
+/* In-page anchor links (e.g. scroll cue) via Lenis — tiles open the
+   lightbox and #start links open the intake modal instead */
+document.querySelectorAll('a[href^="#"]:not(.menu__item a):not(.tile):not([href="#start"])').forEach((a) => {
   a.addEventListener('click', (e) => {
     const id = a.getAttribute('href');
     if (id === '#' || id === '#top') return;
@@ -185,6 +186,42 @@ if (intake) {
       submit.textContent = label;
       if (fail) fail.hidden = false;
     }
+  });
+}
+
+/* ---------- Intake form modal ---------- */
+const startModal = document.getElementById('startModal');
+if (startModal) {
+  const closeBtn = startModal.querySelector('.modal__close');
+
+  const openModal = () => {
+    startModal.classList.add('open');
+    startModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+    if (lenis) lenis.stop();
+    const first = startModal.querySelector('input, select, textarea');
+    if (first) setTimeout(() => first.focus(), 300);
+  };
+  const closeModal = () => {
+    startModal.classList.remove('open');
+    startModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+    if (lenis && !document.body.classList.contains('menu-open')) lenis.start();
+  };
+
+  /* Every "start a project" trigger: nav pill, About invite, contact CTA */
+  document.querySelectorAll('a[href="#start"], [data-open-start]').forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (document.body.classList.contains('menu-open')) setMenu(false);
+      openModal();
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  startModal.addEventListener('click', (e) => { if (e.target === startModal) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && startModal.classList.contains('open')) closeModal();
   });
 }
 

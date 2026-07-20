@@ -615,9 +615,18 @@ body.menu-open .menu__foot { opacity: 1; }
   cursor: zoom-in;
 }
 .ba-pair__cell img { transition: transform 0.9s var(--ease); }
-.ba-pair__cell::after {
+/* Stacked variant: a Before column and an After column, two views each */
+.ba-pair__col {
+  position: relative;
+  display: grid;
+  gap: 3px;
+  align-content: start;
+}
+/* State chips sit on whichever element carries data-tag (cell or column) */
+.ba-pair [data-tag]::after {
   content: attr(data-tag);
   position: absolute;
+  z-index: 2;
   top: 10px; left: 10px;
   padding: 0.5em 0.9em 0.45em;
   font-size: 0.56rem; font-weight: 500;
@@ -626,7 +635,7 @@ body.menu-open .menu__foot { opacity: 1; }
   background: var(--off-white); color: var(--ink);
   pointer-events: none;
 }
-.ba-pair__cell[data-tag="After"]::after {
+.ba-pair [data-tag="After"]::after {
   background: var(--seaglass); color: var(--slate-deep);
 }
 @media (hover: hover) {
@@ -951,7 +960,76 @@ body.menu-open .menu__foot { opacity: 1; }
 .back-top { transition: color 0.3s; }
 .back-top:hover { color: var(--seaglass); }
 
-/* ---------- Intake form (right column) ---------- */
+/* ---------- Start-a-project CTA card (right column) ---------- */
+.contact__cta {
+  background: rgba(241,240,234,0.04);
+  border: 1px solid var(--line-x);
+  border-radius: 2px;
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1rem;
+}
+.contact__cta-heading {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem); letter-spacing: -0.01em; color: var(--off-white);
+}
+.contact__cta-sub { color: rgba(241,240,234,0.66); font-size: 0.96rem; max-width: 38ch; }
+.contact__cta-btn {
+  margin-top: 0.4rem;
+  padding: 1em 1.9em 0.95em;
+  background: var(--seaglass); color: var(--slate-deep);
+  border-radius: 999px;
+  font-size: 0.74rem; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.contact__cta-btn:hover { background: #a3bfb2; transform: translateY(-2px); }
+
+/* ---------- Intake form modal ---------- */
+.modal {
+  position: fixed; inset: 0; z-index: 110;
+  display: none;
+  align-items: center; justify-content: center;
+  padding: clamp(0.8rem, 3vw, 2.5rem);
+  background: rgba(13,19,17,0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.modal.open { display: flex; animation: modal-in 0.35s var(--ease) both; }
+@keyframes modal-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.modal__panel {
+  position: relative;
+  width: min(640px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--slate-deep);
+  border: 1px solid var(--line-x);
+  border-radius: 4px;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+}
+.modal.open .modal__panel { animation: panel-in 0.35s var(--ease) both; }
+@keyframes panel-in {
+  from { transform: translateY(14px); }
+  to   { transform: none; }
+}
+.modal__close {
+  position: sticky; top: 0;
+  display: block;
+  margin-left: auto;
+  z-index: 2;
+  color: var(--off-white);
+  font-size: 2rem; line-height: 1;
+  padding: 0 0.2rem 0.2rem;
+  transition: color 0.3s, transform 0.3s var(--ease);
+}
+.modal__close:hover { color: var(--seaglass); transform: rotate(90deg); }
+body.modal-open { overflow: hidden; }
+
+/* Inside the modal panel the form drops its own card chrome */
+.modal .intake { border: 0; background: none; padding: 0; }
+
 .intake {
   background: rgba(241,240,234,0.04);
   border: 1px solid var(--line-x);

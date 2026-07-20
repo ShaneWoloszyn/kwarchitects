@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="icon" href="images/logo.jpg" />
-  <link rel="stylesheet" href="css/styles.css?v=20260709c" />
+  <link rel="stylesheet" href="css/styles.css?v=20260719c" />
 </head>
 <body>
 
@@ -182,7 +182,7 @@
       <div class="grid">
         <!-- Featured -->
         <a class="tile tile--wide reveal-fade" href="#contact"
-           data-gallery="residential/yorkretreat/yorkretreat.jpg,residential/yorkretreat/york-01.jpg,residential/yorkretreat/york-02.jpg,residential/yorkretreat/york-03.jpg,residential/yorkretreat/yorkretreatback.jpg">
+           data-gallery="residential/yorkretreat/yorkretreat.jpg,residential/yorkretreat/yorkretreatback.jpg,residential/yorkretreat/york-01.jpg,residential/yorkretreat/york-02.jpg,residential/yorkretreat/york-03.jpg">
           <div class="media" data-count="5 Photos">
             <img class="media__img"
               src="residential/yorkretreat/yorkretreat.jpg"
@@ -324,30 +324,6 @@
         <figure class="ba-pair reveal-fade">
           <div class="ba-pair__imgs">
             <div class="ba-pair__cell" data-tag="Before">
-              <img src="beforeandafter/perry/perry-before.jpg" alt="Saco Beach Cottage before renovation" loading="lazy" onerror="this.style.opacity=0" />
-            </div>
-            <div class="ba-pair__cell" data-tag="After">
-              <img src="beforeandafter/perry/perry-after.jpg" alt="Saco Beach Cottage after renovation" loading="lazy" onerror="this.style.opacity=0" />
-            </div>
-          </div>
-          <figcaption class="ba-pair__bar"><span class="ba-pair__name">Saco Beach Cottage</span><span class="ba-pair__tag">Residential Renovation</span></figcaption>
-        </figure>
-
-        <figure class="ba-pair reveal-fade">
-          <div class="ba-pair__imgs">
-            <div class="ba-pair__cell" data-tag="Before">
-              <img src="beforeandafter/sullivan/sullivan-before.jpg" alt="Sullivan residence before renovation" loading="lazy" onerror="this.style.opacity=0" />
-            </div>
-            <div class="ba-pair__cell" data-tag="After">
-              <img src="beforeandafter/sullivan/sullivan-after.jpg" alt="Sullivan residence after renovation" loading="lazy" onerror="this.style.opacity=0" />
-            </div>
-          </div>
-          <figcaption class="ba-pair__bar"><span class="ba-pair__name">Sullivan</span><span class="ba-pair__tag">Residential Renovation</span></figcaption>
-        </figure>
-
-        <figure class="ba-pair reveal-fade">
-          <div class="ba-pair__imgs">
-            <div class="ba-pair__cell" data-tag="Before">
               <img src="beforeandafter/willowcottage/willowcottage-before.jpg" alt="Willow Cottage before renovation" loading="lazy" onerror="this.style.opacity=0" />
             </div>
             <div class="ba-pair__cell" data-tag="After">
@@ -355,6 +331,51 @@
             </div>
           </div>
           <figcaption class="ba-pair__bar"><span class="ba-pair__name">Willow Cottage</span><span class="ba-pair__tag">Residential Renovation</span></figcaption>
+        </figure>
+
+        <!-- Stacked pairs: front + back view for each state -->
+        <figure class="ba-pair ba-pair--stack reveal-fade">
+          <div class="ba-pair__imgs">
+            <div class="ba-pair__col" data-tag="Before">
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/sullivan/sullivan-beforefront.jpg" alt="Windswept by the Beach before renovation, front" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/sullivan/sullivan-beforeback.jpg" alt="Windswept by the Beach before renovation, back" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+            </div>
+            <div class="ba-pair__col" data-tag="After">
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/sullivan/sullivan-afterfront.jpg" alt="Windswept by the Beach after renovation, front" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/sullivan/sullivan-afterback.jpg" alt="Windswept by the Beach after renovation, back" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+            </div>
+          </div>
+          <figcaption class="ba-pair__bar"><span class="ba-pair__name">Windswept by the Beach</span><span class="ba-pair__tag">Residential Renovation</span></figcaption>
+        </figure>
+
+        <figure class="ba-pair ba-pair--stack reveal-fade">
+          <div class="ba-pair__imgs">
+            <div class="ba-pair__col" data-tag="Before">
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/perry/perry-beforefront.jpg" alt="Saco Beach Cottage before renovation, front" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/perry/perry-beforeback.jpg" alt="Saco Beach Cottage before renovation, back" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+            </div>
+            <div class="ba-pair__col" data-tag="After">
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/perry/perry-afterfront.jpg" alt="Saco Beach Cottage after renovation, front" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+              <div class="ba-pair__cell">
+                <img src="beforeandafter/perry/perry-afterback.jpg" alt="Saco Beach Cottage after renovation, back" loading="lazy" onerror="this.style.opacity=0" />
+              </div>
+            </div>
+          </div>
+          <figcaption class="ba-pair__bar"><span class="ba-pair__name">Saco Beach Cottage</span><span class="ba-pair__tag">Residential Renovation</span></figcaption>
         </figure>
       </div>
     </section>
@@ -565,11 +586,21 @@
             </div>
           </div>
 
-          <!-- Right — project intake form -->
+          <!-- Right — start-a-project CTA; the intake form opens in a modal -->
+          <div class="contact__cta reveal-fade">
+            <h3 class="contact__cta-heading">Let's work together</h3>
+            <p class="contact__cta-sub">Tell us about yourself and the project you have in mind — the form takes about two minutes.</p>
+            <button type="button" class="contact__cta-btn" data-open-start>Start Your Project <span aria-hidden="true">→</span></button>
+          </div>
+
+          <!-- Intake form modal (fixed overlay — DOM position here is irrelevant) -->
           <!-- Formspree: create a free form at https://formspree.io and replace
                YOUR_FORM_ID in the action below. Until that's set, the form shows a
                demo confirmation and does not actually send. -->
-          <form id="start" class="intake reveal-fade" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="modal" id="startModal" role="dialog" aria-modal="true" aria-label="Project intake form" aria-hidden="true">
+            <div class="modal__panel">
+              <button type="button" class="modal__close" aria-label="Close form">×</button>
+          <form id="start" class="intake" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <div class="intake__intro">
               <h3 class="intake__heading">Let's work together</h3>
               <p class="intake__subheading">Please tell us more about your project</p>
@@ -684,6 +715,8 @@
             <p class="intake__done" role="status" hidden>Thank you — we've received your details and will be in touch shortly.</p>
             <p class="intake__error" role="alert" hidden>Sorry — something went wrong sending your message. Please email us at <a href="mailto:kristi@maine-architects.com">kristi@maine-architects.com</a>.</p>
           </form>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -714,6 +747,6 @@
   <script src="js/vendor/gsap.min.js"></script>
   <script src="js/vendor/ScrollTrigger.min.js"></script>
   <script src="js/vendor/lenis.min.js"></script>
-  <script src="js/main.js?v=20260708"></script>
+  <script src="js/main.js?v=20260719b"></script>
 </body>
 </html>
