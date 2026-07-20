@@ -12,6 +12,7 @@
   --mist:       #9FB0B0;   /* cool sea mist      */
   --driftwood:  #98A198;   /* weathered driftwood*/
   --seaglass:   #7FA095;   /* sea-glass green    */
+  --link:       #47775F;   /* darker seaglass — readable link color on paper */
   --cedar:      #B07949;   /* weathered cedar    */
   --slate:      #24312D;   /* deep slate         */
   --slate-deep: #141D1A;   /* deeper slate       */
@@ -373,13 +374,13 @@ body.menu-open .menu__foot { opacity: 1; }
 .facts__v--stack a {
   display: block;
   width: max-content; max-width: 100%;
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1px;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  transition: color 0.3s, background-size 0.4s var(--ease);
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.3s;
 }
-.facts__v--stack a:hover { color: var(--seaglass); background-size: 100% 1px; }
+.facts__v--stack a:hover { color: var(--cedar); }
 
 /* =========================================================
    SHARED SECTION FURNITURE — numbered sheet headers
@@ -831,18 +832,30 @@ body.menu-open .menu__foot { opacity: 1; }
   font-family: var(--display); font-weight: 400;
   font-size: clamp(1.05rem, 1.8vw, 1.6rem);
   letter-spacing: -0.01em;
-  color: var(--slate);
-  transition: color 0.35s var(--ease);
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.28em;
+  transition: color 0.35s var(--ease), text-decoration-color 0.35s;
 }
-.press__arrow {
-  font-size: 1rem;
-  color: var(--driftwood);
-  transition: transform 0.35s var(--ease), color 0.35s;
+.press__btn {
+  flex: none;
+  align-self: center;
+  display: inline-block;
+  padding: 0.7em 1.4em 0.65em;
+  border: 1px solid var(--slate);
+  border-radius: 999px;
+  font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--slate);
+  white-space: nowrap;
+  transition: background 0.35s var(--ease), color 0.35s, border-color 0.35s;
 }
 @media (hover: hover) {
   .press__item:hover { padding-left: 0.6rem; }
-  .press__item:hover .press__title { color: var(--seaglass); }
-  .press__item:hover .press__arrow { color: var(--seaglass); transform: translate(3px, -3px); }
+  .press__item:hover .press__title { color: var(--seaglass); text-decoration-color: var(--seaglass); }
+  .press__item:hover .press__btn { background: var(--slate); color: var(--off-white); }
 }
 
 /* =========================================================
@@ -920,13 +933,13 @@ body.menu-open .menu__foot { opacity: 1; }
   color: var(--mist);
 }
 .contact__col a {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1px;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  transition: color 0.3s, background-size 0.4s var(--ease);
+  color: var(--seaglass);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: color 0.3s;
 }
-.contact__col a:hover { color: var(--seaglass); background-size: 100% 1px; }
+.contact__col a:hover { color: var(--off-white); }
 
 .contact__base {
   position: relative; z-index: 2;
@@ -1044,14 +1057,16 @@ body.menu-open .menu__foot { opacity: 1; }
 }
 .lightbox__link {
   display: inline-block;
-  margin-top: 0.8rem;
-  color: var(--seaglass);
-  font-size: 0.66rem; letter-spacing: 0.28em; text-transform: uppercase;
-  border-bottom: 1px solid rgba(127,160,149,0.5);
-  padding-bottom: 0.2em;
-  transition: color 0.3s, border-color 0.3s;
+  margin-top: 1rem;
+  padding: 0.9em 1.8em 0.85em;
+  background: var(--seaglass);
+  color: var(--slate-deep);
+  border-radius: 999px;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
 }
-.lightbox__link:hover { color: var(--off-white); border-color: var(--off-white); }
+.lightbox__link:hover { background: #a3bfb2; transform: translateY(-2px); }
 .lightbox__count {
   display: block;
   margin-top: 0.7rem;
@@ -1117,8 +1132,9 @@ body.lightbox-open { overflow: hidden; }
 }
 @media (max-width: 640px) {
   .nav__logo-word { display: none; }
-  .press__item { flex-wrap: wrap; gap: 0.3rem 1rem; }
+  .press__item { flex-wrap: wrap; gap: 0.5rem 1rem; }
   .press__source { flex-basis: 100%; }
+  .press__btn { align-self: flex-start; }
   .hero__cue-text { display: none; }
   .hero__meta { justify-content: flex-start; }
   .menu__foot { flex-direction: column; gap: 0.4rem; }
